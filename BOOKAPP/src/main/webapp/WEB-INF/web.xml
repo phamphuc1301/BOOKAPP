@@ -17,5 +17,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+	<error-page>
+		<location>/error</location>
+	</error-page>
 </web-app>
