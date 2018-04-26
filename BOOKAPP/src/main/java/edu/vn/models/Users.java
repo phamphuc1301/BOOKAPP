@@ -1,101 +1,97 @@
 package edu.vn.models;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+
 @Entity
+
 public class Users implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int userId;
-	private String email;
-	private String userName;
-	private String fullName;
-	private String password;
-	@OneToOne
-	private Address address;
-	private String roles;
-	
-	
-	public Users(String email, String userName, String fullName, String password,
-	    Address address, String roles) {
-		super();
-		this.email = email;
-		this.userName = userName;
-		this.fullName = fullName;
-		this.password = password;
-		this.address = address;
-		this.roles = roles;
-	}
 
-	
-	public Users() {
-		super();
-	}
+  private static final long serialVersionUID = 1L;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int userId;
+  private String email;
+  private String userName;
+  private String fullName;
+  private String password;
+  @OneToOne
+  private Address address;
+  private String roles;
 
+  public Users(String email, String userName, String fullName, String password,
+      Address address, String roles) {
+    super();
+    this.email = email;
+    this.userName = userName;
+    this.fullName = fullName;
+    this.password = password;
+    this.address = address;
+    this.roles = roles;
+  }
 
-	public int getUserId() {
-		return userId;
-	}
+  public Users() {
+    super();
+  }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+  public int getUserId() {
+    return userId;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public void setUserId(int userId) {
+    this.userId = userId;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public String getUserName() {
-		return userName;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+  public String getUserName() {
+    return userName;
+  }
 
-	public String getFullName() {
-		return fullName;
-	}
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+  public String getPassword() {
+    return password;
+  }
 
-	public Address getAddress() {
-		return address;
-	}
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+  public Address getAddress() {
+    return address;
+  }
 
-	public String getRoles() {
-		return roles;
-	}
+  public void setAddress(Address address) {
+    this.address = address;
+  }
 
-	public void setRoles(String roles) {
-		this.roles = roles;
-	}
+  public String getRoles() {
+    return roles;
+  }
 
+  public void setRoles(String roles) {
+    this.roles = roles;
+  }
 }

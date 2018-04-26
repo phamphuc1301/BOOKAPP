@@ -8,12 +8,18 @@ import edu.vn.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	@Autowired
-	private UserRepository userRepository;
+ 
 
-	@Override
-	public void save(Users user) {
-		userRepository.save(user);
-	}
+  @Autowired
+  private UserRepository userRepository;
 
+  @Override
+  public void save(Users user) {
+    userRepository.save(user);
+  }
+
+  @Override
+  public Users checkLogin(Users user) {
+    return userRepository.checkLogin(user);
+  }
 }
