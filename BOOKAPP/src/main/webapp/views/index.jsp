@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<title>Trang chu</title>
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/fontawesome/font-awesome.css">
-	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/trangchu.css">
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/trangchu.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 	<div class="navbar">
@@ -15,9 +16,10 @@
 			<li><a href="">Book</a></li>
 			<li><a href="">Browse</a></li>
 			<li><a href="">Community</a></li>
+			<li>${currentuser.userName }<a href="<%=request.getContextPath() %>/logout">logout</a></li>
 		</ul>
-		<div class="search">
-			<div class="search2">
+		<div class="searchwraper1">
+			<div class="searchsub1">
 			<input type="text" placeholder="Search books">
 			<div class="before">
 				<a href="">
@@ -33,13 +35,13 @@
 		</div>
 		<div class="myinfo"><img src="<%=request.getContextPath() %>/resources/img/user.png"></div>
 	</div>
-	<div class="container">
+	<div class="content">
 		<div class="left">
 			<div class="pragraph1">
 				<h4>Currently reading</h4>
-				<img src="<%=request.getContextPath() %>/resources/img/showbook.svg"><h5>Want are you reading ?</h5>
-				<div class="search">
-					<div class="search2">
+				<img src="<%=request.getContextPath() %>/resources/img/showbook.svg"><p>Want are you reading ?</p>
+				<div class="searchwraper2">
+					<div class="searchsub2">
 					<input type="text" placeholder="Search books">
 					<div class="before">
 						<a href="">
@@ -50,14 +52,23 @@
 				</div>
 				<a href="#">Recommentations</a>
 				<a href="#">General update</a>
-				<hr>
 			</div>
+			<hr>
 			<div class="pragraph2">
 				<h4>2018 reading challenge</h4>
 				<p>Challenge yourself to read more this year !</p>
 				<div class="book">
-					<h3>2018</h3>
-					<img src="<%=request.getContextPath() %>/resources/img/book1.svg" alt="">
+					<div class="leftbook">
+						<p>2018</p>
+						<img src="<%=request.getContextPath() %>/resources/img/book1.svg" alt="" >
+						<h3 class="challenge">READING Challenge</h3>
+					</div>
+					<div class="rightbook">
+						<p>I want to read</p>
+						<input type="number" name="numberOfRead" placeholder="9">
+						<h4>Book in 2018</h4>
+						<button class="submitChallenge">Start Challege</button>
+					</div>
 				</div>
 			</div>
 

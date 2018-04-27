@@ -27,7 +27,7 @@ public class DemoFillter implements Filter {
       FilterChain chain) throws IOException, ServletException {
     if (request instanceof HttpServletRequest) {
       String url = ((HttpServletRequest) request).getRequestURL().toString();
-      if (url.matches(".*(css|jpg|png|gif|js|appLogin|woff2|woff)")) {
+      if (url.matches(".*(css|jpg|png|gif|js|appLogin|woff2|woff|svg)")) {
         
         System.out.println("INSIDE METHOD");
         chain.doFilter(request, response);

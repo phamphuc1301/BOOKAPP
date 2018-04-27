@@ -1,8 +1,11 @@
 package edu.vn.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,11 +33,20 @@ public class UserController {
   }
   
   @RequestMapping(value = "/appLogin", method = RequestMethod.POST) 
-  public String login(ModelMap modelMap,@ModelAttribute Users user) {
+  public String login(ModelMap modelMap,@ModelAttribute Users user,HttpSession session) {
     System.out.println(user);
-    if (userService.checkLogin(user) != null) {
+    Users currentuser = userService.checkLogin(user); 
+    if (currentuser != null) {
+      modelMap.addAttribute("currentuser", currentuser);
+      session.setAttribute("currentUser", currentuser);
       return "index";
     }
+    return "login";
+  }
+  
+  @GetMapping(value = "/logout")
+  public String logout(HttpSession httpSession) {
+    httpSession.removeAttribute("currentUser");
     return "login";
   }
   
