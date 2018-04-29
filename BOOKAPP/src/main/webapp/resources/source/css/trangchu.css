@@ -15,6 +15,7 @@ body {
 .content {
 	margin-left: 80px;
 	margin-right: 80px;
+	overflow:auto;
 }
 .left {
 	height: auto;
@@ -152,4 +153,74 @@ img[src="img/book1.svg"] {
 }
 .pragraph1 {
 	margin-bottom: 40px;
+}
+
+/* ARTICLE */
+.article {
+	width: 60%;
+	height: auto;
+	float: right;
+	position: relative;
+}
+.thumb {
+	width: 20%;
+	position : absolute;
+	left: 0;
+}
+.contentbaiviet {
+	position: absolute;
+	right: 0;
+	text-align: justify;
+	width: 80%;
+}
+.baiviet {
+	height: 270px;
+	width: auto;
+	border-bottom: 1px solid black;
+	font-size:14px;
+	line-height:1.4;
+}
+.baiviet hr {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.contentbaiviet a {
+	text-decoration: none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+.contentbaiviet div {
+	margin-bottom: -5px;
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:1.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+#stars {
+	padding-left: 0px;
+}
+footer{
+	height: 30px;
+	background-color: #f4f3e9;
+	text-align: center;
+	margin-top: 20px;
+}
+footer i {
+	padding-top: 10px;
+	color:#bebebe;
 }

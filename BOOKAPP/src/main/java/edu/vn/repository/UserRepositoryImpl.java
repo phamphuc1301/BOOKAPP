@@ -37,6 +37,9 @@ public class UserRepositoryImpl implements UserRepository {
         + "= :userName AND password=:password");
     query.setParameter("userName", user.getUserName());
     query.setParameter("password", user.getPassword());
+    if (query.list().size() == 0) {
+      return null;
+    }
     return (Users) query.list().get(0);
   }
 

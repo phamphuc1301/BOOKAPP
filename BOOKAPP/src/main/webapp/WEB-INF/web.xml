@@ -29,6 +29,7 @@
 		<filter-name>appFillter</filter-name>
 		<filter-class>edu.vn.filter.DemoFillter</filter-class>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>appFillter</filter-name>
 		<url-pattern>/*</url-pattern>

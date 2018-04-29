@@ -9,32 +9,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-	<div class="navbar">
-		<div class="logo"><h2>Readbook.<span>VN</span></h2></div>
-		<ul class="menu">
-			<li><a href="">Home</a></li>
-			<li><a href="">Book</a></li>
-			<li><a href="">Browse</a></li>
-			<li><a href="">Community</a></li>
-			<li>${currentuser.userName }<a href="<%=request.getContextPath() %>/logout">logout</a></li>
-		</ul>
-		<div class="searchwraper1">
-			<div class="searchsub1">
-			<input type="text" placeholder="Search books">
-			<div class="before">
-				<a href="">
-			<i class="fa fa-search"></i>
-			</a>
-			</div>
-			</div>
-		</div>
-		<div class="social">
-			<div class="bell"><i class="fa fa-bell"></i></div>
-			<div class="messages"><i class="fa fa-comment"></i></div>
-			<div class="friends"><i class="fa fa-users"></i></div>
-		</div>
-		<div class="myinfo"><img src="<%=request.getContextPath() %>/resources/img/user.png"></div>
-	</div>
+	<jsp:include page="include/menu.jsp"></jsp:include>
 	<div class="content">
 		<div class="left">
 			<div class="pragraph1">
@@ -73,7 +48,90 @@
 			</div>
 
 		</div>
-
+<div class="article">
+			<h2>Hot article</h2>
+			<div class="baiviet">
+			<h4>The title</h4>
+			<div class="thumb">
+				<img src="<%=request.getContextPath() %>/resources/img/7094569.jpg" alt="thumbnail">
+				
+			</div>
+			<div class="contentbaiviet">
+				<div class="noidung">
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nisi, cumque enim omnis dicta nesciunt consequatur quam nobis sit. Cupiditate in atque deleniti cumque explicabo dolores, eius id consectetur. Laborum dolores mollitia sequi, dolor eaque et est, a quo animi consequatur deserunt dicta nostrum tenetur! Quasi libero fuga, repudiandae adipisci.</span>
+				<span><a href="#">Continue reading</a></span>
+				</div>
+				<div class="ratting">
+				<div class='rating-stars text-center'>
+			    <ul id='stars'>
+			      <li class='star' title='Poor' data-value='1'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='Fair' data-value='2'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='Good' data-value='3'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='Excellent' data-value='4'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='WOW!!!' data-value='5'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			    </ul>
+  				</div>
+  				</div>
+  				<div class="author">
+  					Author : <a href="#">Lorem ipsum dolor sit amet</a>
+  				</div>
+  				<div class="date">
+  					<p>December 20 2018</p>
+  				</div>
+			</div>
+			</div>
+			<div class="baiviet">
+			<h4>The title</h4>
+			<div class="thumb">
+				<img src="<%=request.getContextPath() %>/resources/img/7094569.jpg" alt="thumbnail">
+				
+			</div>
+			<div class="contentbaiviet">
+				<div class="noidung">
+				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nisi, cumque enim omnis dicta nesciunt consequatur quam nobis sit. Cupiditate in atque deleniti cumque explicabo dolores, eius id consectetur. Laborum dolores mollitia sequi, dolor eaque et est, a quo animi consequatur deserunt dicta nostrum tenetur! Quasi libero fuga, repudiandae adipisci.</span>
+				<span><a href="#">Continue reading</a></span>
+				</div>
+				<div class="ratting">
+				<div class='rating-stars text-center'>
+			    <ul id='stars'>
+			      <li class='star' title='Poor' data-value='1'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='Fair' data-value='2'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='Good' data-value='3'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='Excellent' data-value='4'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			      <li class='star' title='WOW!!!' data-value='5'>
+			        <i class='fa fa-star fa-fw'></i>
+			      </li>
+			    </ul>
+  				</div>
+  				</div>
+  				<div class="author">
+  					Author : <a href="#">Lorem ipsum dolor sit amet</a>
+  				</div>
+  				<div class="date">
+  					<p>December 20 2018</p>
+  				</div>
+			</div>
+			</div>
+		</div>
 	</div>
 </body>
+<jsp:include page="include/footer.jsp"/>
 </html>
