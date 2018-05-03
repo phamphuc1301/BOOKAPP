@@ -17,24 +17,6 @@
 	<import resource="configuration.datasources.xml"/>
 	<import resource="configuration.iterceptor.xml"/>
 	<import resource="configuration.bean.xml"/>
-	
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" /> <!-- Dependency Injection -->
-		<property name="packagesToScan" value="edu.vn.models"></property>
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
-			</props>
-		</property>
-	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-		
-	</bean>
+
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 </beans>

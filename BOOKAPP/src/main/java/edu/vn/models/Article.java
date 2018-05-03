@@ -5,10 +5,13 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.codehaus.jackson.annotate.JsonSubTypes.Type;
 import org.hibernate.annotations.Check;
 
 @Entity
@@ -18,7 +21,9 @@ public class Article implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
-  private String articleId;
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  private int articleId;
+  @Column(name="title",columnDefinition ="text")
   private String title;
   private Date date;
   @Column(name = "status")
@@ -30,11 +35,19 @@ public class Article implements Serializable {
   @OneToOne
   private Users authorOfArticle;
 
-  public String getArticleId() {
+  public int getArticleId() {
     return articleId;
   }
+  
+  public int getRate() {
+    return rate;
+  }
 
-  public void setArticleId(String articleId) {
+  public void setRate(int rate) {
+    this.rate = rate;
+  }
+
+  public void setArticleId(int articleId) {
     this.articleId = articleId;
   }
 
@@ -78,7 +91,7 @@ public class Article implements Serializable {
     this.authorOfArticle = authorOfArticle;
   }
 
-  public Article(String articleId, String title, Date date, String status,
+  public Article(int articleId, String title, Date date, String status,
       Book book, Users authorOfArticle) {
     super();
     this.articleId = articleId;
@@ -93,4 +106,16 @@ public class Article implements Serializable {
     super();
   }
 
+  public Article(int articleId, String title, Date date, String status,
+      int rate, Book book, Users authorOfArticle) {
+    super();
+    this.articleId = articleId;
+    this.title = title;
+    this.date = date;
+    this.status = status;
+    this.rate = rate;
+    this.book = book;
+    this.authorOfArticle = authorOfArticle;
+  }
+  
 }

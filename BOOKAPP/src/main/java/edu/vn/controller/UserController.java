@@ -1,5 +1,7 @@
 package edu.vn.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +14,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.vn.models.Address;
 import edu.vn.models.Users;
+import edu.vn.repository.ArticleRepository;
 import edu.vn.services.UserService;
+import edu.vn.utils.JsoupTest;
 
 @Controller
 public class UserController {
   @Autowired
   private UserService userService;
-  
+  @Autowired
+  private ArticleRepository articleRepository;
+  @Autowired JsoupTest jsoup;
   /**
    * execute.
    * @return
@@ -33,14 +39,16 @@ public class UserController {
   }
   
   @RequestMapping(value = "/appLogin", method = RequestMethod.POST) 
-  public String login(ModelMap modelMap,@ModelAttribute Users user,HttpSession session) {
+  public String login(ModelMap modelMap,@ModelAttribute Users user,HttpSession session) throws IOException {
     System.out.println(user);
-    Users currentuser = userService.checkLogin(user); 
+    Users currentuser = userService.checkLogin(user);
+    articleRepository.save(jsoup.listAllArticle());
     if (currentuser != null) {
       modelMap.addAttribute("currentuser", currentuser);
       session.setAttribute("currentUser", currentuser);
       return "index";
     }
+    
     return "login";
   }
   

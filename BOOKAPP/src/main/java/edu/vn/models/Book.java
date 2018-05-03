@@ -1,13 +1,18 @@
 package edu.vn.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Book {
   @Id
-  private String iSBN;
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  private int iSBN;
+  @Column(name="name",columnDefinition ="NVARCHAR")
   private String name;
   private String publisher;
   private double price;
@@ -17,7 +22,7 @@ public class Book {
   @OneToOne
   private Category category;
   
-  public Book(String iSBN, String name, String publisher, double price,
+  public Book(int iSBN, String name, String publisher, double price,
       double actualPrice, String description, String image, Category category) {
     super();
     this.iSBN = iSBN;
@@ -34,11 +39,11 @@ public class Book {
     super();
   }
   
-  public String getiSBN() {
+  public int getiSBN() {
     return iSBN;
   }
   
-  public void setiSBN(String iSBN) {
+  public void setiSBN(int iSBN) {
     this.iSBN = iSBN;
   }
   
@@ -95,6 +100,23 @@ public class Book {
   }
   
   public void setCategory(Category category) {
+    this.category = category;
+  }
+
+  public Book(String name) {
+    super();
+    this.name = name;
+  }
+
+  public Book(String name, String publisher, double price, double actualPrice,
+      String description, String image, Category category) {
+    super();
+    this.name = name;
+    this.publisher = publisher;
+    this.price = price;
+    this.actualPrice = actualPrice;
+    this.description = description;
+    this.image = image;
     this.category = category;
   }
 
