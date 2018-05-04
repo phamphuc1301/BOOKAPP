@@ -34,6 +34,12 @@ public class Users implements Serializable {
     this.address = address;
     this.roles = roles;
   }
+  
+  public Users(String userName, String password) {
+    super();
+    this.userName = userName;
+    this.password = password;
+  }
 
   public Users() {
     super();

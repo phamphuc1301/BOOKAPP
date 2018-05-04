@@ -15,5 +15,19 @@ public class ArticleServicesImpl implements ArticleServices {
   public void save(List<Article> articles) {
     articleRepository.save(articles);
   }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#save(edu.vn.models.Article)
+   */
+  @Override
+  public void save(Article article) {
+      articleRepository.save(article);
+  }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#getArticle(java.lang.String)
+   */
+  @Override
+  public List<Article> getArticle(String action) {
+    return articleRepository.getArticle(action);
+  }
   
 }

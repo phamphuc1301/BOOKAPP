@@ -20,6 +20,7 @@ public class Comment implements Serializable {
   private int commentId;
   @OneToOne
   private Users user;
+  @Column(columnDefinition="ntext")
   private String content;
   @ManyToOne
   private Book book;

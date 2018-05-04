@@ -12,12 +12,13 @@ public class Book {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private int iSBN;
-  @Column(name="name",columnDefinition ="NVARCHAR")
+  @Column(name="name",columnDefinition ="ntext")
   private String name;
   private String publisher;
   private double price;
   private double actualPrice;
   private String description;
+  @Column(columnDefinition="nvarchar(255)")
   private String image;
   @OneToOne
   private Category category;

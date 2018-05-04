@@ -1,6 +1,7 @@
 package edu.vn.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,41 +13,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.vn.models.Address;
 import edu.vn.models.Users;
-import edu.vn.repository.ArticleRepository;
 import edu.vn.services.UserService;
-import edu.vn.utils.JsoupTest;
 
 @Controller
 public class UserController {
   @Autowired
   private UserService userService;
-  @Autowired
-  private ArticleRepository articleRepository;
-  @Autowired JsoupTest jsoup;
-  /**
-   * execute.
-   * @return
-   */
-  @RequestMapping(value = "/excute", method = RequestMethod.GET)
-  public String excute() {
-    Address address = new Address("123123", "Thai Nguyen", "Thành phố",
-        "Hồ tùng mậu", "Số nhà 23");
-    userService.save(new Users("chicken", "ducky", "parrot", 
-        "turtle", address, "tiger"));
-    return "index";
-  }
+/*  @Autowired
+  private ArticleRepository articleRepository;*/
+
   
   @RequestMapping(value = "/appLogin", method = RequestMethod.POST) 
-  public String login(ModelMap modelMap,@ModelAttribute Users user,HttpSession session) throws IOException {
+  public String login(ModelMap modelMap,@ModelAttribute Users user,HttpSession session) throws IOException, ParseException {
     System.out.println(user);
     Users currentuser = userService.checkLogin(user);
-    articleRepository.save(jsoup.listAllArticle());
+//    articleRepository.save(JsoupTest2.getAllArticle());
     if (currentuser != null) {
       modelMap.addAttribute("currentuser", currentuser);
       session.setAttribute("currentUser", currentuser);
-      return "index";
+      return "redirect:index";
     }
     
     return "login";
@@ -58,9 +44,6 @@ public class UserController {
     return "login";
   }
   
-  @RequestMapping(value = "/index",method = RequestMethod.GET)
-  public String showIndex() {
-    return "index";
-  }
+
   
 }
