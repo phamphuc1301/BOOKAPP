@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Check;
 
@@ -20,8 +21,9 @@ import org.hibernate.annotations.Check;
 @Check(constraints = "status = 'Publisher' or status = 'Draft' "
     + "AND rate between 1 and 5")
 @NamedNativeQueries({
-  @NamedNativeQuery( name = "ar_getlist", query = "CALL usp_getArticle(:action)")
+  @NamedNativeQuery( name = "ar_getlist", query = "usp_getArticle ?")
 })
+@Table(name ="Article")
 public class Article implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -35,7 +37,7 @@ public class Article implements Serializable {
   private String status;
   @Column(name = "rate")
   private int rate;
-  @Column(columnDefinition="nvarchar(255)")
+  @Column(columnDefinition="ntext")
   private String images;
   @Column(columnDefinition = "ntext")
   private String content;
@@ -43,7 +45,7 @@ public class Article implements Serializable {
   private Book book;
   @OneToOne(cascade=CascadeType.ALL)
   private Users authorOfArticle;
-  @Column(columnDefinition="nvarchar(60)")
+  @Column(columnDefinition = "ntext")
   private String type;
   public int getArticleId() {
     return articleId;

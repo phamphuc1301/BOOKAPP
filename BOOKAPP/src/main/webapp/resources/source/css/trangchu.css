@@ -2,69 +2,21 @@ body {
 	padding: 0;
 	margin: 0;
 	background-color: #f9f7f4;
-	font-family: "Lato";
+	font-family: "Roboto";
 }
-.navbar{
-	position: relative;
-	width: 100%;
-	height: 50px;
-	background-color: #f4f2e9;
-	box-shadow: 0px 3px 2px #bebebe;
 
-}
-.navbar ul li{
-    cursor: pointer;
-}
 .content {
-	margin-left: 80px;
-	margin-right: 80px;
+	margin-left: 50px;
+	margin-right: 50px;
 	overflow:auto;
 }
+
 .left {
 	height: auto;
 	width: 30%;
 	float: left;
 }
-.logo h2 {
-	position: absolute;
-	float: left;
-	bottom: -5px;
-	left: 40px;
-}
-.menu {
-	list-style-type: none;
-	position: absolute;
-	left: 15%;
-	margin: 0px;
-	height: 100%;
-	width:500px;
-}
-.menu li {
-	box-sizing: border-box;
-	text-align: center;
-	height: 100%;
-	float: left;
-	padding: 15px 5px;
-	transition:0.2s; 
-	text-align: center;
-	margin-left: 5px;
-}
-.menu li:hover{
-	background-color: #efe9d0	;
-	margin-top: 3px;
-}
-.menu li a{
-	color: #382110;
-	text-decoration: none;
-	font-size:14px;
-	display:block;
-	text-transform: uppercase;
-}
-.searchwraper1 {
-	position: absolute;
-	top: 25%;
-	right: 25%;
-}
+
 .searchwraper2 {
 	position: relative;
 }
@@ -72,46 +24,22 @@ body {
 	position: absolute;
 	left: 0;
 }
-.searchwraper1 input,.searchwraper2 input{
+.searchwraper2 input{
 	width: 270px;
 	height: 20px;
 }
-.searchsub1 {
-	position: relative;
-}
-.searchwraper1 .searchsub1 .before i,.searchwraper1 .searchsub1 .before:before ,.searchwraper2 .searchsub2 .before i,.searchwraper2 .searchsub2 .before:before {
+.searchwraper2 .searchsub2 .before i,.searchwraper2 .searchsub2 .before:before {
 	position: absolute;
 	right: 10px;
 	top:16%;
 }
-.searchwraper1 .searchsub1 .before:before, .searchwraper2 .searchsub2 .before:before {
+.searchwraper2 .searchsub2 .before:before {
 	content: "|";
 	padding-right: 25px;
 	top:15%;
 }
 ::placeholder {
 	padding-left: 10px;
-}
-.social {
-	position: absolute;
-	right: 10%;
-	top: 30%;
-}
-.social div {
-	float: left;
-	padding-left:15px;
-}
-.social div i {
-	font-size: 20px;
-	color: #382110;
-}
-.myinfo{
-	position: absolute;
-	right: 1%;
-	top:10%;
-}
-.myinfo img{
-	width: 40px;
 }
 
 img[src="img/book1.svg"] {
@@ -160,15 +88,44 @@ img[src="img/book1.svg"] {
 
 /* ARTICLE */
 .article {
-	width: 60%;
+	width: 68%;
 	height: auto;
 	float: right;
 	position: relative;
 }
-.thumb {
+.thumbcontent {
 	width: 20%;
 	position : absolute;
 	left: 0;
+	height:180px;
+	overflow:  hidden;
+	margin-right:10px;
+}
+.thumb {
+	position :relative;
+	height: 100%;
+	width:100%;
+}
+.thumbcontent .thumb img {
+	position:absolute;
+	left:-40%;
+	height:160px;
+	padding-top: 5px;
+}
+.noidung span {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   font-size:14px;    /* Cỡ chữ */
+   line-height: 1.3em;     /* khoảng cách dòng */
+   max-height: 100px;      /* Chiều cao tối đa */
+   -webkit-line-clamp: 4; /* Số dòng hiển thị */
+   -webkit-box-orient: vertical;
+}
+.wrapper1 {
+	position: relative;
+	margin-right: 40px;
+	margin-top:20px;
 }
 .contentbaiviet {
 	position: absolute;
@@ -182,6 +139,9 @@ img[src="img/book1.svg"] {
 	border-bottom: 1px solid black;
 	font-size:14px;
 	line-height:1.4;
+}
+.baiviet div{
+	padding-right:-10px;
 }
 .baiviet hr {
 	position: absolute;
@@ -226,4 +186,7 @@ footer{
 footer i {
 	padding-top: 10px;
 	color:#bebebe;
+}
+.left div {
+    padding-bottom: 10px;
 }

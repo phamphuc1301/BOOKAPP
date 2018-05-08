@@ -14,14 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.vn.models.Users;
+import edu.vn.repository.ArticleRepository;
 import edu.vn.services.UserService;
+import edu.vn.utils.JsoupTest2;
 
 @Controller
 public class UserController {
   @Autowired
   private UserService userService;
-/*  @Autowired
-  private ArticleRepository articleRepository;*/
+//  @Autowired
+//  private ArticleRepository articleRepository;
 
   
   @RequestMapping(value = "/appLogin", method = RequestMethod.POST) 

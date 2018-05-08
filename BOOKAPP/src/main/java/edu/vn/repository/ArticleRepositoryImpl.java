@@ -2,13 +2,13 @@ package edu.vn.repository;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.vn.models.Article;
 @Repository
@@ -53,9 +53,47 @@ public class ArticleRepositoryImpl implements ArticleRepository {
   @Override
   public List<Article> getArticle(String action) {
     Session session = sessionFactory.getCurrentSession();
-    Query query = session.getNamedQuery("ar_getlist");
-    query.setParameter("action", action);
+    SQLQuery query = session.createSQLQuery("usp_getArticle ?");
+    query.setParameter(0, action);
+    query.addEntity(Article.class);
     return query.list();
+  }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.ArticleRepository#findById(java.lang.String)
+   */
+  @Override
+  public Article findById(String id) {
+    Session session = sessionFactory.getCurrentSession();
+    Query query = session.createQuery("FROM Article WHERE articleId = :id");
+    
+    query.setInteger("id", Integer.parseInt(id));
+    return (Article) query.uniqueResult();
+  }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.ArticleRepository#relatedArticle(java.lang.String)
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Article> relatedArticle(String articleType) {
+    Session session = sessionFactory.getCurrentSession();
+    SQLQuery query = session.createSQLQuery("usp_articlelienquan ?");
+    query.setParameter(0, articleType);
+    query.addEntity(Article.class);
+    return query.list();
+  }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.ArticleRepository#findByTitle(java.lang.String)
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Article> findByTitle(String value) {
+    Session session = sessionFactory.getCurrentSession();
+    Query qry = session.createQuery("From Article as ar where ar.title like ?");
+    qry.setString(0, "%"+value+"%");
+    return (List<Article>)qry.list();
   }
   
   

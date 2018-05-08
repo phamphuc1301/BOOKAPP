@@ -11,6 +11,19 @@ import edu.vn.repository.ArticleRepository;
 public class ArticleServicesImpl implements ArticleServices {
   @Autowired
   private ArticleRepository articleRepository;
+  
+  /**
+   * @return the articleRepository
+   */
+  public ArticleRepository getArticleRepository() {
+    return articleRepository;
+  }
+  /**
+   * @param articleRepository the articleRepository to set
+   */
+  public void setArticleRepository(ArticleRepository articleRepository) {
+    this.articleRepository = articleRepository;
+  }
   @Override
   public void save(List<Article> articles) {
     articleRepository.save(articles);
@@ -29,5 +42,27 @@ public class ArticleServicesImpl implements ArticleServices {
   public List<Article> getArticle(String action) {
     return articleRepository.getArticle(action);
   }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#findById(java.lang.String)
+   */
+  @Override
+  public Article findById(String id) {
+    return articleRepository.findById(id);
+  }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#relatedArticle(java.lang.String)
+   */
+  @Override
+  public List<Article> relatedArticle(String articleType) {
+    return articleRepository.relatedArticle(articleType);
+  }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#findByTitle(java.lang.String)
+   */
+  @Override
+  public List<Article> findByTitle(String value) {
+    return articleRepository.findByTitle(value);
+  }
+  
   
 }

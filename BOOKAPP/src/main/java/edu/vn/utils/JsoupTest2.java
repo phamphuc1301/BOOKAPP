@@ -72,7 +72,7 @@ public class JsoupTest2 {
   }
   public static void main(String[] args) throws IOException, ParseException {
     for (Article value : getAllArticle()) {
-      System.out.println(value.getDate());
+      System.out.println("Noi dung :"+value.getContent());
     }
   }
 }

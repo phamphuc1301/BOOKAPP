@@ -16,10 +16,12 @@ import edu.vn.utils.Constant;
 public class ShowPageController {
   @Autowired
   private ArticleServicesImpl articleService;
+  
   @RequestMapping(value = "/index",method = RequestMethod.GET)
   public String showIndex(ModelMap model) {
     List<Article> listTop5 = articleService.getArticle(Constant.AR_5NEWEST);
-    System.out.println(listTop5);
+//    List<Article> listVanHoc = articleService.getArticle(Constant.AR_LISTVANHOC);
+    model.addAttribute("listArticle", listTop5);
     return "index";
   }
 }
