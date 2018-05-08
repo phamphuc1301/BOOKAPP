@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+body {
+    font-family: "metropolis-regular", sans-serif;
+}
+.s-content__header {
+   padding-bottom: 3rem;
+   text-align: center;
+}
+.s-content__header-meta li {
+    display: inline-block;
+    padding-left: 0;
+    margin: 0 1rem;
+}
+
+.s-content__header-meta {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 1.2rem;
+    font-family: "metropolis-medium", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    position: relative;
+}
+table th {
+    width: auto !important;
+}
