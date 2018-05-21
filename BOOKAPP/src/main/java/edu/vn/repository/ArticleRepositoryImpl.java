@@ -11,12 +11,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.vn.models.Article;
+import edu.vn.models.Users;
+
 @Repository
 @Transactional
 public class ArticleRepositoryImpl implements ArticleRepository {
   @Autowired
   private SessionFactory sessionFactory;
-  
   public SessionFactory getSessionFactory() {
     return sessionFactory;
   }
@@ -95,6 +96,20 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     qry.setString(0, "%"+value+"%");
     return (List<Article>)qry.list();
   }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.ArticleRepository#myArticle(java.lang.String)
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Article> myArticle(String page,String userName) {
+    Session session = sessionFactory.getCurrentSession();
+    Users currentUser = (Users) session.createQuery("FROM Users Where userName = '"+userName+"'").list().get(0);
+    Query qry = session.createQuery("From Article as ar where ar.authorOfArticle = ?");
+    qry.setInteger(0, currentUser.getUserId());
+    return qry.list();
+  }
+  
   
   
 }

@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 </head>
 	<div class="article">
-			<h2>Hot article</h2>
+			<h2>Bài viết nổi bật</h2>
 			<p:forEach items="${listArticle }" var="article">
 			<div class="baiviet">
 			<p style="font-weight:500; text-transform:uppercase">${article.title }<p>

@@ -1,6 +1,10 @@
 package edu.vn.controller;
 
+import java.security.Principal;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,10 +45,14 @@ public class ArticleController {
   }
   
   @RequestMapping(value ="/myArticle", method = RequestMethod.GET)
-  public String myArticle(ModelMap modelMap) {
-    modelMap.addAttribute("listArticle", articleService.getArticle(Constant.AR_ALL));
+  public String myArticle(ModelMap modelMap,HttpSession session, Principal principal) {
+    String userName = principal.getName();
+    List<Article> listArticle = articleService.myArticle("1", userName);
+    if(listArticle != null) {
+      modelMap.addAttribute("listArticle", listArticle);
+    } else {
+      modelMap.addAttribute("nullable", true);
+    }
     return "myArticle";
   }
-  
-  
 }

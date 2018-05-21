@@ -3,6 +3,7 @@ package edu.vn.services;
 import java.util.List;
 
 import edu.vn.models.Article;
+import edu.vn.models.Users;
 
 public interface ArticleServices {
   void save(List<Article> articles);
@@ -16,4 +17,6 @@ public interface ArticleServices {
   List<Article> relatedArticle(String articleType);
   
   List<Article> findByTitle(String value);
+  
+  List<Article> myArticle(String page,String userName);
 }

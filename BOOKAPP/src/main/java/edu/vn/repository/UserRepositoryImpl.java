@@ -1,9 +1,12 @@
 package edu.vn.repository;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +44,14 @@ public class UserRepositoryImpl implements UserRepository {
       return null;
     }
     return (Users) query.list().get(0);
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<User> listAll() {
+    Session session = sessionFactory.getCurrentSession();
+    Query  query = session.createQuery("FROM Users");
+    return query.list();
   }
 
 }

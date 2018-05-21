@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.vn.models.Article;
+import edu.vn.models.Users;
 import edu.vn.repository.ArticleRepository;
 @Service
 public class ArticleServicesImpl implements ArticleServices {
@@ -62,6 +63,13 @@ public class ArticleServicesImpl implements ArticleServices {
   @Override
   public List<Article> findByTitle(String value) {
     return articleRepository.findByTitle(value);
+  }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#myArticle(java.lang.String, edu.vn.models.Users)
+   */
+  @Override
+  public List<Article> myArticle(String page, String userName) {
+    return articleRepository.myArticle(page, userName);
   }
   
   

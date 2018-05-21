@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/theme/css/vendor.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/theme/css/main.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/fontawesome/font-awesome.css">
+   	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/css/menu.css">
 
     <!-- script
     ================================================== -->

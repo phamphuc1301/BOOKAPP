@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 	<bean id="contentuser"
+        class="org.springframework.web.servlet.view.JstlView">
+        <property name="url" value="/views/admin/contentuser.jsp" />
+    </bean>
+    <bean id="dashboard"
+        class="org.springframework.web.servlet.view.JstlView">
+        <property name="url" value="/views/admin/dashboard.jsp" />
+    </bean>
+    
+    <bean id="contentdashboard"
+    class ="org.springframework.web.servlet.view.JstlView">
+    	<property name="url" value="/views/admin/contentdashboard.jsp"/>
+    </bean>
+    
+    <bean id="adminlogin"
+    class ="org.springframework.web.servlet.view.JstlView">
+    	<property name="url" value="/views/admin/adminlogin.jsp"/>
+    </bean>
+    <bean id="comment"
+    class ="org.springframework.web.servlet.view.JstlView">
+    	<property name="url" value="/views/admin/comment.jsp"/>
+    </bean>
+     <bean id="article"
+    class ="org.springframework.web.servlet.view.JstlView">
+    	<property name="url" value="/views/admin/article.jsp"/>
+    </bean>
+</beans>

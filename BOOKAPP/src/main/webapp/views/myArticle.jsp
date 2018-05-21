@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/css/bootstrap.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/css/menu.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/css/myArticle.css">
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/trangchu.css">
 <title>My Article</title>
 </head>
 <body>
@@ -27,25 +28,28 @@
 	<div class="container">
 		<table class="table table-striped">
 			<tr class="active">
-				<th width="10%">ID</th>
-				<th width="30%">Title</th>
-				<th width="15%">Date</th>
-				<th width="15%">Status</th>
-				<th width="15%">Type</th>
-				<th width="15%">Action</th>
+				<th >ID</th>
+				<th>Title</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Type</th>
+				<th>Action</th>
 			</tr>
 			<div class="contentTable">
+			<c:if test="${nullable }">
+				<h4>Bạn chưa có bài viết nào. Đóng góp thêm để forum cùng phát triển nhé</h4>
+			</c:if>
 			<c:forEach items="${listArticle }" var="article">
 				<tr>
-					<td>${article.articleId}</td>
-					<td>${article.title }</td>
-					<td><fmt:formatDate value="${article.date }" type="date"/></td>
-					<td><select class="form-control">
+					<td class="col-md-1">${article.articleId}</td>
+					<td class="col-md-5">${article.title }</td>
+					<td class="col-md-2"><fmt:formatDate value="${article.date }" type="date"/></td>
+					<td class="col-md-2"><select class="form-control">
 						<option <c:if test="${article.status eq 'Publisher'}">selected='selected'</c:if> > Publisher</option>
 						<option <c:if test="${article.status eq 'Draft'}">selected='selected'</c:if>  la>Draft</option>
 					</select></td>
-					<td>${article.type }</td>
-					<td>
+					<td class="col-md-1">${article.type }</td>
+					<td class="col-md-1">
 						<span><a href="<%=request.getContextPath()%>/delete?id=${article.articleId}">Remove</a></span>
 						<span><a href="<%=request.getContextPath()%>/edit?id=${article.articleId}">Edit</a></span>
 					</td>
@@ -55,4 +59,5 @@
 		</table>
 	</div>
 </body>
+<jsp:include page="include/footer.jsp"></jsp:include>
 </html>

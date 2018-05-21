@@ -6,6 +6,13 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/views/" />
 		<property name="suffix" value=".jsp" />
+		<property name="order" value="1"></property>
 	</bean>
 	
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location">
+			<value>/WEB-INF/viewadmin.xml</value>
+		</property>
+		<property name="order" value="0"></property>
+	</bean>
 </beans>

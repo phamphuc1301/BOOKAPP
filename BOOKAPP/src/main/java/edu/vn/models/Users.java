@@ -1,15 +1,19 @@
 package edu.vn.models;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Check;
+
 
 @Entity
-
+@Check(constraints = "enabled = 0 or enabled = 1")
 public class Users implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -17,13 +21,14 @@ public class Users implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int userId;
   private String email;
+  @Column(unique=true)
   private String userName;
   private String fullName;
   private String password;
   @OneToOne
   private Address address;
   private String roles;
-
+  private int enabled;
   public Users(String email, String userName, String fullName, String password,
       Address address, String roles) {
     super();
@@ -43,6 +48,14 @@ public class Users implements Serializable {
 
   public Users() {
     super();
+  }
+
+  public int getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(int enabled) {
+    this.enabled = enabled;
   }
 
   public int getUserId() {

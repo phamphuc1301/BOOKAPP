@@ -22,7 +22,7 @@ public class Address {
   private String ward;
   @Column(nullable = false, name = "street")
   private String street;
-  
+    
   public Address(String phoneNumber, String city,
       String province, String ward, String street) {
     super();
