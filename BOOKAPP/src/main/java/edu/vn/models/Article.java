@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,7 +44,7 @@ public class Article implements Serializable {
   private String content;
   @ManyToOne(cascade=CascadeType.ALL)
   private Book book;
-  @OneToOne(cascade=CascadeType.ALL)
+  @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
   private Users authorOfArticle;
   @Column(columnDefinition = "ntext")
   private String type;
@@ -51,6 +52,11 @@ public class Article implements Serializable {
     return articleId;
   }
   
+  public Article(int articleId) {
+    super();
+    this.articleId = articleId;
+  }
+
   public int getRate() {
     return rate;
   }

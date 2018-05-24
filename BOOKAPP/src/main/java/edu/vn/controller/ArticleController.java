@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.vn.models.Article;
 import edu.vn.services.ArticleServices;
+import edu.vn.services.CommentServices;
 import edu.vn.utils.Constant;
 
 @Controller
 public class ArticleController {
+  @Autowired
+  private CommentServices commentServices;
   @Autowired
   private ArticleServices articleService;
   @RequestMapping(value = "/readArticle",method = RequestMethod.GET)
@@ -25,10 +28,13 @@ public class ArticleController {
     String id = request.getParameter("id");
     System.out.println(id);
     Article article = articleService.findById(id);
+    System.out.println(article);
     if(article != null) {
       model.addAttribute("article", article);
       model.addAttribute("samecontent", articleService.relatedArticle(article.getType()));
     }
+    System.out.println("IMAGES : "+article.getAuthorOfArticle().getImages());
+    model.addAttribute("comment", commentServices.findByArticle(article));
     return "article";
   }
   

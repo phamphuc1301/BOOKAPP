@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <head>
 	<meta charset="UTF-8">
@@ -46,10 +47,11 @@
   				</div>
   				</div>
   				<div class="author">
-  					Author : <a href="#">Lorem ipsum dolor sit amet</a>
+  					Author : <a href="#">${article.authorOfArticle.userName }</a>
   				</div>
   				<div class="date">
-  					<p>December 20 2018</p>
+  					<p>Date : <fmt:formatDate type = "date" 
+        			value = "${article.date}" /></p>
   				</div>
 			</div>
 			</div>

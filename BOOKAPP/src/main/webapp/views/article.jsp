@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -51,7 +53,8 @@
                     This Is an Article.
                 </h1>
                 <ul class="s-content__header-meta">
-                    <li class="date">${article.date }</li>
+                    <li class="date"><fmt:formatDate type = "date" 
+        								value = "${article.date}" /></li>
                 </ul>
             </div> <!-- end s-content__header -->
 
@@ -95,146 +98,40 @@
 
                     <!-- commentlist -->
                     <ol class="commentlist">
-
+						<c:forEach items="${comment }" var="commentValue">
                         <li class="depth-1 comment">
 
                             <div class="comment__avatar">
-                                <img width="50" height="50" class="avatar" src="images/avatars/user-01.jpg" alt="">
+                            <c:if test="${empty commentValue.user}">
+                            	<img width="50" height="50" class="avatar" src="https://uploads.scratch.mit.edu/users/avatars/395/5762.png" alt="">
+                            </c:if>
+                            <c:if test="${not empty commentValue.user}"></c:if>
+                                <img width="50" height="50" class="avatar" src="${commentValue.user.images }" alt="">
                             </div>
 
                             <div class="comment__content">
-
                                 <div class="comment__info">
-                                    <cite>Itachi Uchiha</cite>
-
+                                <c:if test="${empty commentValue.user}">
+                            		<cite>${commentValue.userName }</cite>
+                            	</c:if>
+                            	<c:if test="${not empty commentValue.user}">
+                            		<cite>${commentValue.user.userName }</cite>
+                            	</c:if>
                                     <div class="comment__meta">
-                                        <time class="comment__time">Dec 16, 2017 @ 23:05</time>
+                                        <time class="comment__time">Date : <fmt:formatDate type = "date" 
+        								value = "${commentValue.date}" /></time>
                                         <a class="reply" href="#0">Reply</a>
                                     </div>
                                 </div>
 
                                 <div class="comment__text">
-                                <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque mei. Nec te inani ponderum vulputate,
-                                facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia mentitum est, ne has voluptua praesent.</p>
+                                <p>${commentValue.content }</p>
                                 </div>
 
                             </div>
 
                         </li> <!-- end comment level 1 -->
-
-                        <li class="thread-alt depth-1 comment">
-
-                            <div class="comment__avatar">
-                                <img width="50" height="50" class="avatar" src="images/avatars/user-04.jpg" alt="">
-                            </div>
-
-                            <div class="comment__content">
-
-                                <div class="comment__info">
-                                <cite>John Doe</cite>
-
-                                <div class="comment__meta">
-                                    <time class="comment__time">Dec 16, 2017 @ 24:05</time>
-                                    <a class="reply" href="#0">Reply</a>
-                                </div>
-                                </div>
-
-                                <div class="comment__text">
-                                <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium, tota falli et mei. Esse euismod
-                                urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus contentiones nec ad, nec et
-                                tantas semper delicatissimi.</p>
-                                </div>
-
-                            </div>
-
-                            <ul class="children">
-
-                                <li class="depth-2 comment">
-
-                                    <div class="comment__avatar">
-                                        <img width="50" height="50" class="avatar" src="images/avatars/user-03.jpg" alt="">
-                                    </div>
-
-                                    <div class="comment__content">
-
-                                        <div class="comment__info">
-                                            <cite>Kakashi Hatake</cite>
-
-                                            <div class="comment__meta">
-                                                <time class="comment__time">Dec 16, 2017 @ 25:05</time>
-                                                <a class="reply" href="#0">Reply</a>
-                                            </div>
-                                        </div>
-
-                                        <div class="comment__text">
-                                            <p>Duis sed odio sit amet nibh vulputate
-                                            cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate
-                                            cursus a sit amet mauris</p>
-                                        </div>
-
-                                    </div>
-
-                                    <ul class="children">
-
-                                        <li class="depth-3 comment">
-
-                                            <div class="comment__avatar">
-                                                <img width="50" height="50" class="avatar" src="images/avatars/user-04.jpg" alt="">
-                                            </div>
-
-                                            <div class="comment__content">
-
-                                                <div class="comment__info">
-                                                <cite>John Doe</cite>
-
-                                                <div class="comment__meta">
-                                                    <time class="comment__time">Dec 16, 2017 @ 25:15</time>
-                                                    <a class="reply" href="#0">Reply</a>
-                                                </div>
-                                                </div>
-
-                                                <div class="comment__text">
-                                                <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
-                                                etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
-                                                </div>
-
-                                            </div>
-
-                                        </li>
-
-                                    </ul>
-
-                                </li>
-
-                            </ul>
-
-                        </li> <!-- end comment level 1 -->
-
-                        <li class="depth-1 comment">
-
-                            <div class="comment__avatar">
-                                <img width="50" height="50" class="avatar" src="images/avatars/user-02.jpg" alt="">
-                            </div>
-
-                            <div class="comment__content">
-
-                                <div class="comment__info">
-                                <cite>Shikamaru Nara</cite>
-
-                                <div class="comment__meta">
-                                    <time class="comment-time">Dec 16, 2017 @ 25:15</time>
-                                    <a class="reply" href="#">Reply</a>
-                                </div>
-                                </div>
-
-                                <div class="comment__text">
-                                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
-                                </div>
-
-                            </div>
-
-                        </li>  <!-- end comment level 1 -->
-
+                        </c:forEach>
                     </ol> <!-- end commentlist -->
 
 
@@ -244,23 +141,19 @@
 
                         <h3 class="h2">Add Comment</h3>
 
-                        <form name="contactForm" id="contactForm" method="post" action="">
+                        <form name="contactForm" id="contactForm" method="post" action="<%=request.getContextPath()%>/comment" modelAttribute="commentContent">
                             <fieldset>
-
+								<input style="display:none" type="text" value="${article.articleId }" name ="articleId"/>
                                 <div class="form-field">
-                                        <input name="cName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
+                                        <input name="userName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
                                 </div>
 
                                 <div class="form-field">
-                                        <input name="cEmail" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
-                                </div>
-
-                                <div class="form-field">
-                                        <input name="cWebsite" type="text" id="cWebsite" class="full-width" placeholder="Website" value="">
+                                        <input name="email" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
                                 </div>
 
                                 <div class="message form-field">
-                                    <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                                    <textarea name="content" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
                                 </div>
 
                                 <button type="submit" class="submit btn--primary btn--large full-width">Submit</button>

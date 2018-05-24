@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.vn.models.Article;
-import edu.vn.services.ArticleServicesImpl;
+import edu.vn.services.ArticleServices;
 import edu.vn.utils.Constant;
 
 @Controller
 public class ShowPageController {
   @Autowired
-  private ArticleServicesImpl articleService;
+  private ArticleServices articleService;
 //  @Autowired
 //  private ArticleRepository articleRepository;
   @RequestMapping(value = {"/index","/"},method = RequestMethod.GET)
   public String showIndex(ModelMap model) throws IOException, ParseException {
     List<Article> listTop5 = articleService.getArticle(Constant.AR_5NEWEST);
 //    articleRepository.save(JsoupTest2.getAllArticle());
-//    List<Article> listVanHoc = articleService.getArticle(Constant.AR_LISTVANHOC);
+    List<Article> listVanHoc = articleService.getArticle(Constant.AR_LISTVANHOC);
     model.addAttribute("listArticle", listTop5);
     return "index";
   }

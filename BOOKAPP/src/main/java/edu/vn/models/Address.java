@@ -14,13 +14,13 @@ public class Address {
   private int addressId;
   @Column(nullable = false, name = "phone_number")
   private String phoneNumber;
-  @Column(nullable = false, name = "city")
+  @Column(nullable = false, name = "city",columnDefinition="nvarchar(255)")
   private String city;
-  @Column(nullable = false, name = "province")
+  @Column(nullable = false, name = "province",columnDefinition="nvarchar(255)")
   private String province;
-  @Column(nullable = false, name = "ward")
+  @Column(nullable = false, name = "ward",columnDefinition="nvarchar(255)")
   private String ward;
-  @Column(nullable = false, name = "street")
+  @Column(nullable = false, name = "street",columnDefinition="nvarchar(255)")
   private String street;
     
   public Address(String phoneNumber, String city,

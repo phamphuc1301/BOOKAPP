@@ -11,7 +11,6 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Check;
 
-
 @Entity
 @Check(constraints = "enabled = 0 or enabled = 1")
 public class Users implements Serializable {
@@ -21,7 +20,7 @@ public class Users implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int userId;
   private String email;
-  @Column(unique=true)
+  @Column(unique = true)
   private String userName;
   private String fullName;
   private String password;
@@ -29,6 +28,8 @@ public class Users implements Serializable {
   private Address address;
   private String roles;
   private int enabled;
+  private String images;
+
   public Users(String email, String userName, String fullName, String password,
       Address address, String roles) {
     super();
@@ -39,7 +40,37 @@ public class Users implements Serializable {
     this.address = address;
     this.roles = roles;
   }
-  
+
+  /**
+   * @return the images
+   */
+  public String getImages() {
+    return images;
+  }
+
+  /**
+   * @param images
+   *          the images to set
+   */
+  public void setImages(String images) {
+    this.images = images;
+  }
+
+  public Users(int userId, String email, String userName, String fullName,
+      String password, Address address, String roles, int enabled,
+      String images) {
+    super();
+    this.userId = userId;
+    this.email = email;
+    this.userName = userName;
+    this.fullName = fullName;
+    this.password = password;
+    this.address = address;
+    this.roles = roles;
+    this.enabled = enabled;
+    this.images = images;
+  }
+
   public Users(String userName, String password) {
     super();
     this.userName = userName;
@@ -113,5 +144,5 @@ public class Users implements Serializable {
   public void setRoles(String roles) {
     this.roles = roles;
   }
-  
+
 }

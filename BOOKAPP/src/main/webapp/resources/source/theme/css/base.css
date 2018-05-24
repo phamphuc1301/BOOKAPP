@@ -918,3 +918,12 @@ a img {
 }
 
 /*# sourceMappingURL=base.css.map */
+
+input#cName, #cEmail {
+    height: 40px;
+    padding-left: 10px;
+}
+#cMessage {
+	padding-left:10px;
+	height:80px;
+}

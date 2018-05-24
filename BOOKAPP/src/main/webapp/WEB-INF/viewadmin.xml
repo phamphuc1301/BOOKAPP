@@ -24,7 +24,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     class ="org.springframework.web.servlet.view.JstlView">
     	<property name="url" value="/views/admin/comment.jsp"/>
     </bean>
-     <bean id="article"
+     <bean id="articleAdmin"
     class ="org.springframework.web.servlet.view.JstlView">
     	<property name="url" value="/views/admin/article.jsp"/>
     </bean>

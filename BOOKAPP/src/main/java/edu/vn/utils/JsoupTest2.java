@@ -65,6 +65,7 @@ public class JsoupTest2 {
      article.setStatus("Publisher");
      Book book = new Book(title);
      article.setBook(book);
+     users.setImages("https://www.atomix.com.au/user-experience-design/");
      article.setAuthorOfArticle(users);
      listArticle.add(article);
   }
