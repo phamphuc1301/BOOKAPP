@@ -3,12 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<head>
-	<meta charset="UTF-8">
-</head>
 	<div class="article">
-			<h2>Bài viết nổi bật</h2>
+			<h3 class="category">Bài viết mới nhất</h3>
 			<p:forEach items="${listArticle }" var="article">
 			<div class="baiviet">
 			<p style="font-weight:500; text-transform:uppercase">${article.title }<p>

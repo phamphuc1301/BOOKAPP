@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -12,7 +13,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Audio Post Format - Philosophy</title>
+    <title>Read Article</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -143,14 +144,15 @@
 
                         <form name="contactForm" id="contactForm" method="post" action="<%=request.getContextPath()%>/comment" modelAttribute="commentContent">
                             <fieldset>
-								<input style="display:none" type="text" value="${article.articleId }" name ="articleId"/>
-                                <div class="form-field">
+                            <sec:authorize access="hasRole('ROLE_ANONYMOUS')">
+								<div class="form-field">
                                         <input name="userName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
                                 </div>
-
                                 <div class="form-field">
                                         <input name="email" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
                                 </div>
+							</sec:authorize>
+								<input style="display:none" type="text" value="${article.articleId }" name ="articleId"/>
 
                                 <div class="message form-field">
                                     <textarea name="content" id="cMessage" class="full-width" placeholder="Your Message"></textarea>

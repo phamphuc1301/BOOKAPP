@@ -27,10 +27,14 @@ public class UserRepositoryImpl implements UserRepository {
   }
 
   @Override
-  public void save(Users user) {
-    Session session = sessionFactory.getCurrentSession();
-    session.save(user.getAddress());
-    session.save(user);
+  public String save(Users user) {
+    try {
+      Session session = sessionFactory.getCurrentSession();
+      session.save(user);
+      return "SUCCESS";
+    } catch (Exception ex) {
+      return null;
+    }
   }
 
   @Override
@@ -52,6 +56,20 @@ public class UserRepositoryImpl implements UserRepository {
     Session session = sessionFactory.getCurrentSession();
     Query  query = session.createQuery("FROM Users");
     return query.list();
+  }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.UserRepository#findByUserName(java.lang.String)
+   */
+  @Override
+  public Users findByUserName(String userName) {
+    Session session = sessionFactory.getCurrentSession();
+    Query  query = session.createQuery("FROM Users where userName =:userName");
+    query.setParameter("userName", userName);
+    if(query.list().size()>0) {
+      return (Users) query.list().get(0);
+    }
+    return null;
   }
 
 }

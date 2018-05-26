@@ -13,8 +13,8 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
   http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<context:annotation-config/>
 	<context:component-scan base-package="edu.vn"/>
+	<context:annotation-config></context:annotation-config>
 	<mvc:annotation-driven/>
 	
 	<import resource="configuration.datasources.xml"/>

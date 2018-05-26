@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.vn.models.Article;
 import edu.vn.models.Comment;
+import edu.vn.models.Users;
 
 @Repository
 @Transactional
@@ -38,4 +39,18 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
   }
 
+  @Override
+  public void save(Comment comment, String userName) {
+    Session session = sessionFactory.getCurrentSession();
+    Query query = session.createQuery("From Users WHERE userName =:userName");
+    query.setParameter("userName", userName);
+    if(query.list() != null) {
+      Users user = (Users) query.list().get(0);
+      comment.setUser(user);
+      session.save(comment);
+    }
+    else {
+      save(comment);
+    }
+  }
 }

@@ -24,4 +24,11 @@ public class CommentServicesImpl implements CommentServices {
     return commentRepository.findByArticle(article);
   }
 
+
+  @Override
+  public void save(Comment comment, String userName) {
+    commentRepository.save(comment, userName);
+  }
+  
+  
 }

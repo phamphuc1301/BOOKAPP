@@ -28,4 +28,8 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     class ="org.springframework.web.servlet.view.JstlView">
     	<property name="url" value="/views/admin/article.jsp"/>
     </bean>
+    <bean id="articleindex"
+    	class ="org.springframework.web.servlet.view.JstlView">
+    	<property name="url" value="/views/pages/index5newest.jsp"/>
+    </bean>
 </beans>

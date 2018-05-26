@@ -2,6 +2,7 @@ package edu.vn.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Users implements Serializable {
   private String userName;
   private String fullName;
   private String password;
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
   private Address address;
   private String roles;
   private int enabled;

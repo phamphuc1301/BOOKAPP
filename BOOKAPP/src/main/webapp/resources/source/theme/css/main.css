@@ -2065,11 +2065,6 @@ body.search-is-visible {
 /* -------------------------------------------------------------------
  * ## main navigation
  * ------------------------------------------------------------------- */
-.header__nav-wrap {
-   margin-top: 15px;
-   border-top: 1px solid rgba(255, 255, 255, 0.04);
-   padding-top: 15px;
-}
 
 .header__nav-wrap a {
    color: rgba(255, 255, 255, 0.6);
@@ -2816,7 +2811,7 @@ html.no-csstransitions .featured {
  * ------------------------------------------------------------------- */
 .s-content {
    background-color: #f2f2f2;
-   padding-top: 8.4rem;
+   margin-top :-100px;
    padding-bottom: 7.2rem;
 }
 .s-content p{
@@ -3553,7 +3548,6 @@ footer h4::after {
  * ## content main
  * ------------------------------------------------------------------- */
 .s-content__main {
-   margin-top: 6rem;
    padding-left: 6rem;
    padding-right: 6rem;
 }
@@ -3936,16 +3930,10 @@ footer h4::after {
 
 #comments h3 {
    margin-top: 0;
-   margin-bottom: 1.5rem;
 }
 
 #comments ol, #comments ul {
    list-style: none;
-}
-
-.commentlist {
-   margin: 6rem 0 5.4rem;
-   padding: 0;
 }
 
 .commentlist > .comment {
@@ -4014,13 +4002,6 @@ footer h4::after {
 
 /* comments form
  * ---------------------------- */
-#comments .respond {
-   padding-top: 4.2rem;
-}
-
-#comments form {
-   padding-top: 3rem;
-}
 
 #comments form .form-field {
    margin-bottom: 3.9rem;

@@ -9,4 +9,6 @@ public interface CommentRepository {
   void save(Comment comment);
 
   List<Comment> findByArticle(Article article);
+  
+  void save(Comment comment,String userName);
 }

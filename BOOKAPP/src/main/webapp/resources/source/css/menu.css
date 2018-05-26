@@ -495,11 +495,6 @@ body.search-is-visible {
 /* -------------------------------------------------------------------
  * ## main navigation
  * ------------------------------------------------------------------- */
-.header__nav-wrap {
-   margin-top: 15px;
-   border-top: 1px solid rgba(255, 255, 255, 0.04);
-   padding-top: 15px;
-}
 
 .header__nav-wrap a {
    color: rgba(255, 255, 255, 0.6);
@@ -667,4 +662,33 @@ ul.header__social {
 .dropdown .dropdown-content a {
 	cursor: pointer;
 	font-size: 10px;
+}
+
+footer{
+	height: 30px;
+	background-color: #f4f3e9;
+	text-align: center;
+	margin-top: 20px;
+}
+footer i {
+	padding-top: 10px;
+	color:#bebebe;
+}
+
+/* SEARCH */
+input#searchbook {
+	margin-top:10px;
+    width: 140%;
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+}
+
+.logo {
+	color:white;
+	text-decoration: none;
+	font-size :30px;
+	text-transform: uppercase;
+	font-weight: 1000;
+	margin-bottom:10px;
 }

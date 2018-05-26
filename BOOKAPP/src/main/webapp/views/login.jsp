@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/fontawesome/font-awesome.css">
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/login.css">
 	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/source/js/jquery-3.2.1.min.js"></script>
-	<title>Goodread - read to share</title>
+	<title>Chia sẻ - Review sách</title>
 </head>
 <body>
 	<div class="banner">
-		<div class="logo"><h2>Readbook.<span>VN</span></h2></div>
+		<div class="logo"><h2>Reader<span> Vn</span></h2></div>
 		<div class="login">
 			<form method="POST" action="<%=request.getContextPath() %>/appLogin" modelAttribute="user">
 				<table>
@@ -24,7 +24,7 @@
 						</tr>
 						<tr>
 							<td><input type="checkbox"> Remember me</td>
-							<td>Forgot it</td>
+							<td>Quên mật khẩu</td>
 						</tr>
 				</table>
 			</form>
@@ -33,13 +33,18 @@
 	<div id = "session2">
 		<div><img src="<%=request.getContextPath() %>/resources/img/banner.png" alt=""></div>
 		<div class="register">
-			<div class="text">New here ? Create a free account!</div>
-			<div><input type="text" name="name" placeholder="Name"></div>
-			<div><input type="email" name="email" placeholder="Email Address"></div>
-			<div><input type="password" name="password" placeholder="Password"></div>
-			<div>
+			<div class="text">Bạn chưa có tài khoản ?</div>
+			<form action="<%=request.getContextPath() %>/register" method="POST" modelAttribute="user">
+				<div><input type="text" name="userName" placeholder="Name"></div>
+				<div><input type="email" name="email" placeholder="Email Address"></div>
+				<div><input type="password" name="password" placeholder="Password"></div>
+				<c:if test="${not empty error }">
+					<div style="color:red">Invalid input</div>
+				</c:if>
+				<div>
 				<input type="submit" name="submit" value="Sign up">
 			</div>
+			</form>
 			<div class="social">Or using 
 				<i class="fa fa-facebook"></i>
 				<i class="fa fa-google"></i>

@@ -38,18 +38,12 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     
   }
 
-  /* (non-Javadoc)
-   * @see edu.vn.repository.ArticleRepository#save(edu.vn.models.Article)
-   */
   @Override
   public void save(Article article) {
     Session session = sessionFactory.openSession();
     session.save(article);
   }
 
-  /* (non-Javadoc)
-   * @see edu.vn.repository.ArticleRepository#getArticle(java.lang.String)
-   */
   @SuppressWarnings("unchecked")
   @Override
   public List<Article> getArticle(String action) {
@@ -72,9 +66,6 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     return (Article) query.uniqueResult();
   }
 
-  /* (non-Javadoc)
-   * @see edu.vn.repository.ArticleRepository#relatedArticle(java.lang.String)
-   */
   @SuppressWarnings("unchecked")
   @Override
   public List<Article> relatedArticle(String articleType) {
@@ -85,9 +76,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     return query.list();
   }
 
-  /* (non-Javadoc)
-   * @see edu.vn.repository.ArticleRepository#findByTitle(java.lang.String)
-   */
+
   @SuppressWarnings("unchecked")
   @Override
   public List<Article> findByTitle(String value) {
@@ -97,9 +86,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     return (List<Article>)qry.list();
   }
 
-  /* (non-Javadoc)
-   * @see edu.vn.repository.ArticleRepository#myArticle(java.lang.String)
-   */
+
   @SuppressWarnings("unchecked")
   @Override
   public List<Article> myArticle(String page,String userName) {
