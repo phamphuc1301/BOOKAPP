@@ -1,5 +1,7 @@
 package edu.vn.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,5 +32,11 @@ public class UserController {
     }
     return "redirect:login";
   }
-
+  @RequestMapping(value="/myProfile",method = RequestMethod.GET)
+  public String myProfile(Model model, Principal principal) {
+    String currentName = principal.getName();
+    Users user = userService.finByUserName(currentName);
+    model.addAttribute("currentUser", user);
+    return "myprofile";
+  }
 }

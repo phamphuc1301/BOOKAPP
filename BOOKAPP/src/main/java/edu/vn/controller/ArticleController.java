@@ -2,7 +2,6 @@ package edu.vn.controller;
 
 import java.io.File;
 import java.security.Principal;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.vn.models.Article;
@@ -97,8 +97,17 @@ public class ArticleController {
     Users user = userServices.finByUserName(principal.getName());
     article.setImages(fileName);
     article.setAuthorOfArticle(user);
-    article.setDate(new Date());
+    article.setAuthorOfArticle(user);
     articleService.save(article);
     return "redirect:index";
+  }
+  
+  @RequestMapping(value="/rate", method=RequestMethod.GET)
+  @ResponseBody
+  public String rate(@RequestParam("id") String id,@RequestParam("rate") String rate) {
+    if(articleService.rate(id, rate)) {
+      return "SUCESS";
+    }
+    return "FALSE";
   }
 }

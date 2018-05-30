@@ -157,7 +157,7 @@ img[src="img/book1.svg"] {
 .contentbaiviet a {
 	text-decoration: none;
 }
-.rating-stars ul > li.star {
+.rating-stars ul > span > li.star {
   display:inline-block;
   
 }
@@ -166,18 +166,18 @@ img[src="img/book1.svg"] {
 }
 
 /* Idle State of the stars */
-.rating-stars ul > li.star > i.fa {
+.rating-stars ul > span > li.star > i.fa {
   font-size:1.5em; /* Change the size of the stars */
   color:#ccc; /* Color on idle state */
 }
 
 /* Hover state of the stars */
-.rating-stars ul > li.star.hover > i.fa {
+.rating-stars ul > span > li.star.hover > i.fa {
   color:#FFCC36;
 }
 
 /* Selected state of the stars */
-.rating-stars ul > li.star.selected > i.fa {
+.rating-stars ul > span > li.star.selected > i.fa {
   color:#FF912C;
 }
 #stars {
@@ -234,4 +234,8 @@ h3.category {
 }
 .linkToArticle a:hover{
 	color:#f7cc0a;
+}
+
+.yellow i{
+	color:#cebb90 !important;
 }

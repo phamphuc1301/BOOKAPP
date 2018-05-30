@@ -36,14 +36,16 @@
 						<li class="dropdown"><a>Hi <i><sec:authentication
 										property="principal.username" /></i> !
 						</a> <span class="dropdown-content"> <a
-								href="<%=request.getContextPath()%>/myProfile">My Profile</a> <a
-								href="<%=request.getContextPath()%>/logout">Logout</a>
+								href="<%=request.getContextPath()%>/myProfile">My Profile</a> 
+								<a href="<%=request.getContextPath()%>/logout">Logout</a>
 						</span></li>
 
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ANONYMOUS')">
 						<li><a href="<%=request.getContextPath()%>/login">Login</a></li>
 					</sec:authorize>
+					<li><a href="<%=request.getContextPath()%>/aboutus">Giới thiệu</a></li>
+					
 					<div class="search">
 						<li>
 							<div id="imaginary_container">
@@ -54,6 +56,7 @@
 							</div>
 						</li>
 					</div>
+					
 				</ul>
 				<!-- end header__nav -->
 

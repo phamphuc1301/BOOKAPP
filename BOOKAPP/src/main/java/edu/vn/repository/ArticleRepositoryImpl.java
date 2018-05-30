@@ -6,6 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -95,6 +96,22 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     Query qry = session.createQuery("From Article as ar where ar.authorOfArticle = ?");
     qry.setInteger(0, currentUser.getUserId());
     return qry.list();
+  }
+
+  @Override
+  public Boolean rate(String idArticle, String rate) {
+    try {
+      Session session = sessionFactory.getCurrentSession();
+      Article article = session.get(Article.class, Integer.parseInt(idArticle));
+      int avgRate = (article.getRate()+Integer.parseInt(rate))/2;
+      System.out.println("CCCCCCCCC : "+avgRate);
+      article.setRate(avgRate);
+      session.update(article);
+      return true;
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      return false;      
+    }
   }
   
   

@@ -71,6 +71,13 @@ public class ArticleServicesImpl implements ArticleServices {
   public List<Article> myArticle(String page, String userName) {
     return articleRepository.myArticle(page, userName);
   }
+  /* (non-Javadoc)
+   * @see edu.vn.services.ArticleServices#rate(java.lang.String, java.lang.String)
+   */
+  @Override
+  public Boolean rate(String idArticle, String rate) {
+    return articleRepository.rate(idArticle, rate);
+  }
   
   
 }

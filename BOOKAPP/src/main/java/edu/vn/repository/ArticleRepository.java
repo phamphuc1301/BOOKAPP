@@ -19,4 +19,5 @@ public interface ArticleRepository {
   
   List<Article> myArticle(String page, String userName);
   
+  Boolean rate(String idArticle,String rate);
 }

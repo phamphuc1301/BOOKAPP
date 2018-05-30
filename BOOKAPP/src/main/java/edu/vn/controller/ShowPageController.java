@@ -46,13 +46,17 @@ public class ShowPageController {
   public List<Article> fillter(List<Article> articles,
       HttpServletRequest request) {
     for (Article article : articles) {
-      if (!article.getImages().contains("http")) {
+      System.out.println("TAT CA ANH :"+article.getImages());
+      if (!article.getImages().contains("https")) {
         String temp = article.getImages();
-        System.out.println(temp);
-        article.setImages(
-            request.getServletContext().getRealPath("hinhanh") + "/" + temp);
+        System.out.println("IMAGES CHECK "+temp);
+        article.setImages("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzvsF9IUezFlMe4UhgPgSSxxaYXzZKjDezcJ8jVQus0ZfktYdJww");
       }
     }
     return articles;
+  }
+  @GetMapping(value="/aboutus")
+  public String aboutus() {
+    return "aboutus";
   }
 }

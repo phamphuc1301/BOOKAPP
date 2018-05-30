@@ -19,7 +19,7 @@
 	href="<%=request.getContextPath()%>/resources/source/css/bootstrap-theme.min.css">
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/source/js/searchArticle.js"></script>
-	
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/source/js/rate.js"></script>
 </head>
 <body>
 	<jsp:include page="include/menu.jsp"></jsp:include>

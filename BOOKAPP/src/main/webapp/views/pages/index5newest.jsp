@@ -23,7 +23,8 @@
 				</div>
 				<div class="ratting">
 				<div class='rating-stars text-center'>
-			    <ul id='stars'>
+			    <ul class='stars'>
+			    <span id="${article.articleId }" class="${article.rate }">
 			      <li class='star' title='Poor' data-value='1'>
 			        <i class='fa fa-star fa-fw'></i>
 			      </li>
@@ -39,6 +40,7 @@
 			      <li class='star' title='WOW!!!' data-value='5'>
 			        <i class='fa fa-star fa-fw'></i>
 			      </li>
+			      </span>
 			    </ul>
   				</div>
   				</div>
