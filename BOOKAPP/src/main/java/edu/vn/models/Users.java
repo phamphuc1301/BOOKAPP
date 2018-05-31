@@ -42,6 +42,14 @@ public class Users implements Serializable {
     this.roles = roles;
   }
 
+  public Users(String email, String userName, String password) {
+    super();
+    this.email = email;
+    this.userName = userName;
+    this.password = password;
+    this.enabled = 0;
+  }
+
   /**
    * @return the images
    */

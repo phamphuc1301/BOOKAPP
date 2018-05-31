@@ -10,27 +10,13 @@ public class OnRegistrationCompleteEvent extends ApplicationEvent {
    * 
    */
   private static final long serialVersionUID = 1L;
-  private String appUrl;
   private Locale locale;
   private Users users;
-  public OnRegistrationCompleteEvent(String appUrl,
+  public OnRegistrationCompleteEvent(
       Locale locale, Users users) {
     super(users);
-    this.appUrl = appUrl;
     this.locale = locale;
     this.users = users;
-  }
-  /**
-   * @return the appUrl
-   */
-  public String getAppUrl() {
-    return appUrl;
-  }
-  /**
-   * @param appUrl the appUrl to set
-   */
-  public void setAppUrl(String appUrl) {
-    this.appUrl = appUrl;
   }
   /**
    * @return the locale
@@ -56,6 +42,5 @@ public class OnRegistrationCompleteEvent extends ApplicationEvent {
   public void setUsers(Users users) {
     this.users = users;
   }
-  
-  
+
 }

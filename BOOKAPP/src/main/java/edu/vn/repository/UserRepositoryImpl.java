@@ -27,11 +27,15 @@ public class UserRepositoryImpl implements UserRepository {
   }
 
   @Override
-  public String save(Users user) {
+  public Users save(Users user) {
     try {
       Session session = sessionFactory.getCurrentSession();
       session.save(user);
-      return "SUCCESS";
+      Query query = session.createQuery("From Users where userName =:userName ");
+      query.setParameter("userName", user.getUserName());
+      Users saveUser = (Users) query.list().get(0);
+      System.out.println("Current user save : "+saveUser);
+      return saveUser;
     } catch (Exception ex) {
       return null;
     }

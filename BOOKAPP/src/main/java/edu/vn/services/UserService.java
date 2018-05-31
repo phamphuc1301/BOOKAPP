@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.User;
 import edu.vn.models.Users;
 
 public interface UserService {
-  String save(Users user);
+  Users save(Users user);
 
   Users checkLogin(Users user);
 

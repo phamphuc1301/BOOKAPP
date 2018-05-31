@@ -22,13 +22,13 @@ public class ShowPageController {
   @Autowired
   private ArticleServices articleService;
 
-  // @Autowired
-  // private ArticleRepository articleRepository;
+//   @Autowired
+//   private ArticleRepository articleRepository;
   @RequestMapping(value = { "/index", "/" }, method = RequestMethod.GET)
   public String showIndex(ModelMap model, HttpServletRequest request)
       throws IOException, ParseException {
     List<Article> listTop5 = articleService.getArticle(Constant.AR_5NEWEST);
-    // articleRepository.save(JsoupTest2.getAllArticle());
+//     articleRepository.save(JsoupTest2.getAllArticle());
     List<Article> listTrinhTham = articleService
         .getArticle(Constant.AR_LISTTRINHTHAM);
     fillter(listTop5, request);
@@ -46,7 +46,6 @@ public class ShowPageController {
   public List<Article> fillter(List<Article> articles,
       HttpServletRequest request) {
     for (Article article : articles) {
-      System.out.println("TAT CA ANH :"+article.getImages());
       if (!article.getImages().contains("https")) {
         String temp = article.getImages();
         System.out.println("IMAGES CHECK "+temp);

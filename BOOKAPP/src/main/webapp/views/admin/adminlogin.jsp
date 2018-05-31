@@ -16,7 +16,7 @@
 				<input type="text" id="inputEmail" class="form-control" name= "userName" placeholder="User Name" required autofocus>
 				<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
 				<div id="remember" class="checkbox">
-				<label> <input type="checkbox" value="remember-me">
+				<label> <input type="checkbox" name="remember-me" value="remember-me">
 					Remember me
 				</label>
 			</div>

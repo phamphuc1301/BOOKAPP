@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.vn.models.Article;
-import edu.vn.models.Users;
 import edu.vn.repository.ArticleRepository;
 @Service
 public class ArticleServicesImpl implements ArticleServices {

@@ -12,6 +12,10 @@ public class AnalysisRepositoryImpl implements AnalysisRepository {
   @Autowired
   private SessionFactory sessionFactory;
 
+  /* Method analysis count field from table.
+   * @param entity wanna count
+   * @return int number of field
+   */
   @Override
   public int analysis(String entity) {
     Session session = sessionFactory.getCurrentSession();

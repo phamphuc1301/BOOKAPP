@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,16 +26,16 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     this.sessionFactory = sessionFactory;
   }
 
+  /* (non-Javadoc)
+   * @see edu.vn.repository.ArticleRepository#save(java.util.List)
+   */
   @Override
   public void save(List<Article> articles) {
     Session session = sessionFactory.getCurrentSession();
     for (Article article : articles) {
-      /*session.save(article.getAuthorOfArticle());
-      session.save(article.getBook());*/
       session.save(article);
       System.out.println(article.getAuthorOfArticle());
     }
-    
   }
 
   @Override
@@ -55,9 +54,6 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     return query.list();
   }
 
-  /* (non-Javadoc)
-   * @see edu.vn.repository.ArticleRepository#findById(java.lang.String)
-   */
   @Override
   public Article findById(String id) {
     Session session = sessionFactory.getCurrentSession();

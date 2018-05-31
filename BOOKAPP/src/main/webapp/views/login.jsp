@@ -23,7 +23,7 @@
 							<td><input type="submit" value="submit"></td>
 						</tr>
 						<tr>
-							<td><input type="checkbox"> Remember me</td>
+							<td><input type="checkbox" name="remember-me" /> Remember me</td>
 							<td>Quên mật khẩu</td>
 						</tr>
 				</table>

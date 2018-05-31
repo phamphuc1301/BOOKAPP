@@ -17,11 +17,10 @@ public class UserServiceImpl implements UserService {
   private UserRepository userRepository;
 
   @Override
-  public String save(Users user) {
+  public Users save(Users user) {
     if("".equals(user.getUserName()) || "".equals(user.getEmail()) || user.getPassword().length() < 5) {
       return null;
     }
-    user.setEnabled(1);
     user.setRoles("ROLE_USER");
     return userRepository.save(user);
   }

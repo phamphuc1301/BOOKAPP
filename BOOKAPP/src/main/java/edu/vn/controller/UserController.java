@@ -3,6 +3,7 @@ package edu.vn.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,19 +15,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.vn.models.Users;
 import edu.vn.services.UserService;
+import edu.vn.utils.OnRegistrationCompleteEvent;
 
 @Controller
 public class UserController {
   @Autowired
   private UserService userService;
-
+  @Autowired
+  private ApplicationEventPublisher eventPublisher;
   @RequestMapping(value = "/register", method = RequestMethod.POST)
   public String registerUser(@ModelAttribute("user") Users user,
       RedirectAttributes redirectAttributes, WebRequest webRequest,
       Errors errors, Model model) {
-    String check = userService.save(user);
-    if (check != null) {
-      model.addAttribute("user", user);
+    Users userCheck = userService.save(user);
+    if (userCheck != null) {
+      eventPublisher.publishEvent(new OnRegistrationCompleteEvent(webRequest.getLocale(), userCheck));
+      model.addAttribute("user", userCheck);
     } else {
       redirectAttributes.addAttribute("error", true);
     }
