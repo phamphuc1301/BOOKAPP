@@ -1,0 +1,113 @@
+body {
+	margin : 0px;
+	font-family: "Roboto";
+}
+
+button.submit.btn--primary.btn--large.full-width {
+    background: #e7e4d1;
+    width:  65px;
+    height: 35px;
+    border: none;
+    border-radius: 2px;
+}
+
+button.submit.btn--primary.btn--large.full-width:hover {
+    background-color: #d2cba1;
+}
+
+.form-field input {
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid #bebebe;
+}
+
+.form-field textarea {
+    height: 80px;
+    border: 1px solid #bebebe;
+    border-radius: 3px;
+}
+
+ol.commentlist {
+    list-style-type: none;
+}
+
+span.fa.fa-clock-o {padding-right: 5px;}
+
+.comment__text {
+    width: 50%;
+    margin-left: 6%;
+}
+
+.comment__text p {
+    margin: 4px;
+}
+
+.comment__avatar {
+    float: left;
+    padding-right: 15px;
+}
+
+span.s-content__prev {}
+
+.s-content__pagenav {
+    text-align: center;
+}
+
+p.lead {
+    font-size: 25px;
+    margin: 5px;
+    margin-left:  0px;
+}
+
+section.s-content.s-content--narrow.s-content--no-padding-bottom {
+    width: 80%;
+    margin-left: 10%;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.form-field input,.form-field textarea {
+    width: 80%;
+    margin-bottom: 10px;
+    /* height: 24px; */
+}
+
+::placeholder {
+    padding-left: 10px;
+    color: #bebebe;
+    font-family: "Roboto";
+}
+
+ol.commentlist li {
+    margin-bottom: 35px;
+}
+
+.s-content__nav span {
+    padding-left: 10px;
+}
+
+.s-content__nav span a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.s-content__nav span a:hover {
+    color: blue;
+}
+
+ul.s-content__header-meta {
+    list-style-type: none;
+}
+
+span.fa.fa-calendar {
+    margin-right: 5px;
+}
+
+.s-content__header.col-full {
+    text-align: center;
+}
+
+h1.s-content__header-title {
+    text-transform: uppercase;
+}

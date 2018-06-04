@@ -7,42 +7,17 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html class="no-js" lang="en">
 <head>
-
     <!--- basic page needs
     ================================================== -->
-    <meta charset="utf-8">
     <title>Read Article</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/theme/css/base.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/article.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/theme/css/vendor.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/theme/css/main.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/fontawesome/font-awesome.css">
    	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/css/menu.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+   	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/fontawesome/font-awesome.css">
 </head>
-
 <body id="top">
-
     <jsp:include page="include/menu.jsp"></jsp:include>
    	<c:set var = "string1" value = "${fn:substring(article.content, 0, 2000)}" />
 	<c:set var = "string2" value = "${fn:substring(article.content, 2001, fn:length(article.content))}" />
@@ -51,10 +26,10 @@
     <section class="s-content s-content--narrow s-content--no-padding-bottom">
             <div class="s-content__header col-full">
                 <h1 class="s-content__header-title">
-                    This Is an Article.
+                    Content Article
                 </h1>
                 <ul class="s-content__header-meta">
-                    <li class="date"><fmt:formatDate type = "date" 
+                    <li class="date"><span class="fa fa-calendar"> </span><fmt:formatDate type = "date" 
         								value = "${article.date}" /></li>
                 </ul>
             </div> <!-- end s-content__header -->
@@ -70,18 +45,16 @@
                 <p>${string2}</p>
                 <div class="s-content__pagenav">
                     <div class="s-content__nav">
-                        <div class="s-content__prev">
+                        <span class="s-content__prev">
                             <a href="#0" rel="prev">
                                 <span>Previous Post</span>
-                                Tips on Minimalist Design 
                             </a>
-                        </div>
-                        <div class="s-content__next">
+                        </span>
+                        <span class="s-content__next">
                             <a href="#0" rel="next">
                                 <span>Next Post</span>
-                                Less Is More 
                             </a>
-                        </div>
+                        </span>
                     </div>
                 </div> <!-- end s-content__pagenav -->
 
@@ -95,7 +68,7 @@
             <div id="comments" class="row">
                 <div class="col-full">
 
-                    <h3 class="h2">5 Comments</h3>
+                    <h3 class="h2">${fn:length(comment) } Comments</h3>
 
                     <!-- commentlist -->
                     <ol class="commentlist">
@@ -119,9 +92,8 @@
                             		<cite>${commentValue.user.userName }</cite>
                             	</c:if>
                                     <div class="comment__meta">
-                                        <time class="comment__time">Date : <fmt:formatDate type = "date" 
+                                        <time class="comment__time"><span class="fa fa-clock-o"></span><fmt:formatDate type = "date" 
         								value = "${commentValue.date}" /></time>
-                                        <a class="reply" href="#0">Reply</a>
                                     </div>
                                 </div>
 
@@ -143,7 +115,6 @@
                         <h3 class="h2">Add Comment</h3>
 
                         <form name="contactForm" id="contactForm" method="post" action="<%=request.getContextPath()%>/comment" modelAttribute="commentContent">
-                            <fieldset>
                             <sec:authorize access="hasRole('ROLE_ANONYMOUS')">
 								<div class="form-field">
                                         <input name="userName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
@@ -160,7 +131,6 @@
 
                                 <button type="submit" class="submit btn--primary btn--large full-width">Submit</button>
 
-                            </fieldset>
                         </form> <!-- end form -->
 
                     </div> <!-- end respond -->
@@ -177,5 +147,6 @@
     ================================================== -->
     <jsp:include page="include/footer.jsp"></jsp:include>
 </body>
-
+<sript src="<%=request.getContextPath() %>/resources/source/js/jquery-3.2.1.min.js"></sript>
+<sript src="<%=request.getContextPath() %>/resources/source/js/comment.js"></sript>
 </html>

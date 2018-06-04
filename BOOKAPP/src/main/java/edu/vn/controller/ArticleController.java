@@ -23,6 +23,7 @@ import edu.vn.services.ArticleServices;
 import edu.vn.services.CommentServices;
 import edu.vn.services.UserService;
 import edu.vn.utils.Constant;
+import edu.vn.utils.ConvertContent;
 
 @Controller
 public class ArticleController {
@@ -43,6 +44,7 @@ public class ArticleController {
       model.addAttribute("samecontent",
           articleService.relatedArticle(article.getType()));
     }
+    System.out.println(ConvertContent.convert(article));
     System.out.println("IMAGES : " + article.getAuthorOfArticle().getImages());
     model.addAttribute("comment", commentServices.findByArticle(article));
     return "article";
