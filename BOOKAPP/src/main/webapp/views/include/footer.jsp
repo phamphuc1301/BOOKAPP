@@ -1,3 +1,3 @@
 <footer>
-	<i class="fa fa-copyright"> 2018 real choice</i>
+	 <i class="fa fa-copyright">Coppyright reviewsach.net</i>
 </footer>

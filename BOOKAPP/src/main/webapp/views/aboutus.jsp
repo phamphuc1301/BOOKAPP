@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <link rel="stylesheet" href ="<%=request.getContextPath() %>/resources/source/css/aboutus.css">
@@ -14,26 +15,26 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="aboutus">
                         <h2 class="aboutus-title">About Us</h2>
-                        <p class="aboutus-text">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>
-                        <p class="aboutus-text">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem</p>
+                        <p class="aboutus-text">Đồ án 2018 - Sinh viên Phạm Văn Phúc</p>
+                        <p class="aboutus-text">Em xin chân thành cảm ơn các thầy, cô Trường Đại học Công nghệ thông tin và Truyền thông đã giảng dạy em các môn trong thời gian vừa qua. Đặc biệt là TS. Đỗ Thị Bắc là giáo viên hướng dẫn trực tiếp, đã tận tình chỉ bảo em hoàn thành đề tài. Trong quá trình thực tập cũng như là trong quá trình làm báo cáo, khó tránh khỏi sai sót,em rất mong các thầy, cô bỏ qua. Đồng thời do trình độ lý luận cũng như kinh nghiệm thực tiễn còn hạn chế nên bài báo cáo không thể tránh khỏi những thiếu sót, em rất mong nhận được ý kiến đóng góp của thầy, cô để em có thêm được nhiều kinh nghiệm và sẽ hoàn thành tốt hơn.</p>
                         <a class="aboutus-more" href="#">read more</a>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="aboutus-banner">
-                        <img src="http://themeinnovation.com/demo2/html/build-up/img/home1/about1.jpg" alt="">
+                        <img src="<%=request.getContextPath() %>/resources/img/read.jpg" width="280px" alt="">
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-6 col-xs-12">
                     <div class="feature">
-                        <div class="feature-box">
+                    <div class="feature-box">
                             <div class="clearfix">
                                 <div class="iconset">
                                     <span class="glyphicon glyphicon-cog icon"></span>
                                 </div>
                                 <div class="feature-content">
-                                    <h4>Work with heart</h4>
-                                    <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>
+                                    <h4>GVHD : T.S Đỗ Thị Bắc</h4>
+                                    <p>Giảng viên trường Đại Học Công Nghệ Thông Tin & Truyền Thông Thái Nguyên</p>
                                 </div>
                             </div>
                         </div>
@@ -43,19 +44,8 @@
                                     <span class="glyphicon glyphicon-cog icon"></span>
                                 </div>
                                 <div class="feature-content">
-                                    <h4>Reliable services</h4>
-                                    <p>Donec vitae sapien ut libero venenatis faucibu. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feature-box">
-                            <div class="clearfix">
-                                <div class="iconset">
-                                    <span class="glyphicon glyphicon-cog icon"></span>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Great support</h4>
-                                    <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>
+                                    <h4>Sv Phạm Văn Phúc</h4>
+                                    <p>Sinh viên trường Đại Học Công Nghệ Thông Tin & Truyền Thông Thái Nguyên</p>
                                 </div>
                             </div>
                         </div>

@@ -13,6 +13,7 @@
 	href="<%=request.getContextPath()%>/resources/source/css/bootstrap-theme.min.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/source/css/bootstrap.css">
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/source/css/menu.css">
 <link rel="stylesheet"

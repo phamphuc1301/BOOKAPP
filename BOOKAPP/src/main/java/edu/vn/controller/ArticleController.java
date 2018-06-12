@@ -2,6 +2,7 @@ package edu.vn.controller;
 
 import java.io.File;
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -99,7 +100,8 @@ public class ArticleController {
     Users user = userServices.finByUserName(principal.getName());
     article.setImages(fileName);
     article.setAuthorOfArticle(user);
-    article.setAuthorOfArticle(user);
+    article.setDate(new Date());
+    article.setStatus("Draft");
     articleService.save(article);
     return "redirect:index";
   }

@@ -10,6 +10,7 @@
 <head>
     <!--- basic page needs
     ================================================== -->
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
     <title>Read Article</title>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/article.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/theme/css/vendor.css">

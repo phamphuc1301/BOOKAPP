@@ -7,6 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
+<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 <meta charset="UTF-8">
 <meta http-equiv="Refresh" content="5;url=<%=request.getContextPath() %>/admin/login">
 <html>

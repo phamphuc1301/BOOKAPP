@@ -10,6 +10,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -31,10 +32,11 @@ public class UserController {
     if (userCheck != null) {
       eventPublisher.publishEvent(new OnRegistrationCompleteEvent(webRequest.getLocale(), userCheck));
       model.addAttribute("user", userCheck);
+      model.addAttribute("inform","Đăng kí thành công. Kiểm tra trong hòm thư của bạn nhé !");
     } else {
-      redirectAttributes.addAttribute("error", true);
+      model.addAttribute("informError", "Có lỗi xảy ra :((");
     }
-    return "redirect:login";
+    return "login";
   }
   @RequestMapping(value="/myProfile",method = RequestMethod.GET)
   public String myProfile(Model model, Principal principal) {
@@ -42,5 +44,13 @@ public class UserController {
     Users user = userService.finByUserName(currentName);
     model.addAttribute("currentUser", user);
     return "myprofile";
+  }
+  
+  @RequestMapping(value="/registerConfirm", method= RequestMethod.GET)
+  public String registerConfirm(@RequestParam("token") String token,Model model) {
+    System.out.println(token);
+    userService.activeUser(token);
+    model.addAttribute("inform","Register Success");
+    return "login";
   }
 }

@@ -14,4 +14,6 @@ public interface UserService {
   public List<User> listAll();
   
   public Users finByUserName(String userName);
+  
+  public String activeUser(String token);
 }

@@ -31,8 +31,10 @@ public class ShowPageController {
 //     articleRepository.save(JsoupTest2.getAllArticle());
     List<Article> listTrinhTham = articleService
         .getArticle(Constant.AR_LISTTRINHTHAM);
-    fillter(listTop5, request);
-    fillter(listTrinhTham, request);
+    List<Article> listVanHoc = articleService.getArticle(Constant.AR_LISTVANHOC);
+/*    fillter(listTop5, request);
+    fillter(listTrinhTham, request);*/
+    model.addAttribute("listVanHoc", listVanHoc);
     model.addAttribute("listArticle", listTop5);
     model.addAttribute("listTrinhTham", listTrinhTham);
     return "index";

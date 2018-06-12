@@ -11,4 +11,6 @@ public interface CommentServices {
   List<Comment> findByArticle(Article article);
   
   void save(Comment comment,String userName);
+  
+  List<Comment> findAll();
 }

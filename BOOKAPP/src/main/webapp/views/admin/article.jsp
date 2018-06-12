@@ -3,11 +3,12 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src ="<%=request.getContextPath() %>/resources/source/admin/js/submitstatus.js"></script>
 </head>
 <body>
 	<div class="chat-panel panel panel-default">
@@ -41,18 +42,24 @@
 			<ul class="chat">
 				<c:forEach items="${allArticle}" var="article">
 					<li class="left clearfix"><span class="chat-img pull-left">
-							<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar"
-							class="img-circle" />
+							<img src="${article.images }" height="50" width="50"
+							alt="User Avatar" class="img-circle" />
 					</span>
 						<div class="chat-body clearfix">
 							<div class="header">
 								<strong class="primary-font">${article.authorOfArticle.userName }</strong>
 								<small class="pull-right text-muted"> <i
-									class="fa fa-clock-o fa-fw"></i><fmt:formatDate type = "date" 
-         							value = "${article.date}" />
+									class="fa fa-clock-o fa-fw"></i>
+								<fmt:formatDate type="date" value="${article.date}" />
 								</small>
 							</div>
 							<p>${article.title }</p>
+							<form action="">
+								<label class="radio-inline"><input type="radio" name="optradio" id="check1" <c:if test="${article.status eq 'Publisher'}"> checked</c:if> >Publisher</label> 
+								<label class="radio-inline"><input type="radio" name="optradio" id="check2"<c:if test="${article.status eq 'Draft'}"> checked</c:if>>Draft</label>
+								</label>
+								<button type="button" id="submitStatus">Submit</button>
+							</form>
 						</div></li>
 				</c:forEach>
 			</ul>

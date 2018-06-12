@@ -55,4 +55,21 @@
 			</div>
 			</div>
 			</p:forEach>
+			
+			<div class="wrappercard2">
+			<h3 class="category">Thể loại Văn Học</h3>
+			<c:forEach items="${listVanHoc }" var="tt" end="2">
+				<div class="card2">
+				<img
+					src="${tt.images }"
+					alt="Avatar" style="width: 100%">
+				<div class="wrapper22">
+					<div>
+						<b>Author : ${tt.authorOfArticle.userName }</b>
+					</div>
+					<p class="linkToArticle"><a href="<%=request.getContextPath()%>/readArticle?id=${tt.articleId}">${tt.title }</a></p>
+				</div>
+			</div>
+			</c:forEach>
+		</div>
 		</div>

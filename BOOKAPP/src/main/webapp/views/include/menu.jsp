@@ -13,13 +13,13 @@
 			<!-- end header__logo -->
 
 			<ul class="header__social">
-				<li><a href="#0"><i class="fa fa-facebook"
+				<li><a href="https://facebook.com" target="blank"><i class="fa fa-facebook"
 						aria-hidden="true"></i></a></li>
-				<li><a href="#0"><i class="fa fa-twitter"
+				<li><a href="http://twitter.com" target ="blank"><i class="fa fa-twitter"
 						aria-hidden="true"></i></a></li>
-				<li><a href="#0"><i class="fa fa-instagram"
+				<li><a href="https://www.instagram.com" target ="blank"><i class="fa fa-instagram"
 						aria-hidden="true"></i></a></li>
-				<li><a href="#0"><i class="fa fa-pinterest"
+				<li><a href="http://twitter.com" target ="blank"><i class="fa fa-pinterest"
 						aria-hidden="true"></i></a></li>
 			</ul>
 			<a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>

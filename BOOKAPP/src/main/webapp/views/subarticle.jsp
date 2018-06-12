@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/fontawesome/font-awesome.css">
 		<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/menu.css">
 		<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/article.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 </head>
 <body>
 <jsp:include page="include/menu.jsp"></jsp:include>

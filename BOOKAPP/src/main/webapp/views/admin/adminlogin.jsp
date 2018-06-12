@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<link href="<%=request.getContextPath()%>/resources/source/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/source/fontawesome/font-awesome.css">
 	<script src="<%=request.getContextPath()%>/resources/source/js/jquery-3.2.1.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/source/js/bootstrap.min.js"></script>

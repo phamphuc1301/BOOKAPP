@@ -7,6 +7,7 @@
 	rel="stylesheet" id="bootstrap-css">
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 <link
 	href="<%=request.getContextPath()%>/resources/source/css/createArticle.css"
 	rel="stylesheet" />

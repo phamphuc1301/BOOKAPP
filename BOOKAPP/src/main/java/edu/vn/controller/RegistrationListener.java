@@ -30,7 +30,7 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
       SimpleMailMessage email = new SimpleMailMessage();
       email.setTo(user.getEmail());
       email.setSubject(subject);
-      email.setText("http://localhost:8080/registerConfirm?token=" +token);
+      email.setText("http://localhost:8080/BOOKAPP/registerConfirm?token=" +token);
       mailSender.send(email);
     }
     else {

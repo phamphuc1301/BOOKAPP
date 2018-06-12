@@ -9,6 +9,7 @@
 <title>Trang chu</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet">
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/source/fontawesome/font-awesome.css">
 <link rel="stylesheet"

@@ -29,6 +29,14 @@ public class CommentServicesImpl implements CommentServices {
   public void save(Comment comment, String userName) {
     commentRepository.save(comment, userName);
   }
+
+  /* (non-Javadoc)
+   * @see edu.vn.services.CommentServices#findAll(edu.vn.models.Article)
+   */
+  @Override
+  public List<Comment> findAll() {
+    return commentRepository.findAll();
+  }
   
   
 }

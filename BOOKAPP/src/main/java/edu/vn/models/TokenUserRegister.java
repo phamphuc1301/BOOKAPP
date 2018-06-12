@@ -72,4 +72,8 @@ public class TokenUserRegister {
     return expiredDate;
   }
 
+  public TokenUserRegister() {
+    super();
+  }
+
 }

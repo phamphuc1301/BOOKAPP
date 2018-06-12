@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.vn.models.TokenUserRegister;
 import edu.vn.models.Users;
 
 @Repository
@@ -75,5 +76,24 @@ public class UserRepositoryImpl implements UserRepository {
     }
     return null;
   }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.UserRepository#activeUser(java.lang.String)
+   */
+  @Override
+  public String activeUser(String token) {
+    Session session = sessionFactory.getCurrentSession();
+    Query  query = session.createQuery("FROM TokenUserRegister where token =:token");
+    query.setParameter("token", token);
+    TokenUserRegister token2 = (TokenUserRegister) query.list().get(0);
+    Users user = token2.getUser();
+    user.setEnabled(1);
+    session.update(user);
+ /*   Query query2 = session.createQuery("DELETE TokenUserRegister where token =:token2");
+    query2.setParameter("token2", token);*/
+    return "SUCCESS";
+  }
+  
+  
 
 }

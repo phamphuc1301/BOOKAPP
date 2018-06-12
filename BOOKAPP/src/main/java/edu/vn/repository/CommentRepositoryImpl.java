@@ -53,4 +53,16 @@ public class CommentRepositoryImpl implements CommentRepository {
       save(comment);
     }
   }
+
+  /* (non-Javadoc)
+   * @see edu.vn.repository.CommentRepository#findAll(edu.vn.models.Article)
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Comment> findAll() {
+    Session session = sessionFactory.getCurrentSession();
+    Query query = session.createQuery("From Comment C Order by date DESC");
+    return query.list();
+  }
+  
 }

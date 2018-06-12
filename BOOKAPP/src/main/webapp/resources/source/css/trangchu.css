@@ -5,6 +5,13 @@ body {
 	font-family: "Roboto";
 }
 
+.card2 {
+    width: 210px;
+    height: 360px;
+    float:  left;
+    margin-left: 40px;
+}
+
 .wrappercard {
     width: 30%;
     position:  relative;
@@ -122,10 +129,10 @@ img[src="img/book1.svg"] {
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
-   font-size:14px;    /* Cá»¡ chá»¯ */
-   line-height: 1.3em;     /* khoáº£ng cÃ¡ch dÃ²ng */
-   max-height: 100px;      /* Chiá»u cao tá»‘i Ä‘a */
-   -webkit-line-clamp: 4; /* Sá»‘ dÃ²ng hiá»ƒn thá»‹ */
+   font-size:14px;    /* CÃƒÂ¡Ã‚Â»Ã‚Â¡ chÃƒÂ¡Ã‚Â»Ã‚Â¯ */
+   line-height: 1.3em;     /* khoÃƒÂ¡Ã‚ÂºÃ‚Â£ng cÃƒÆ’Ã‚Â¡ch dÃƒÆ’Ã‚Â²ng */
+   max-height: 100px;      /* ChiÃƒÂ¡Ã‚Â»Ã‚Âu cao tÃƒÂ¡Ã‚Â»Ã¢â‚¬Ëœi Ãƒâ€žÃ¢â‚¬Ëœa */
+   -webkit-line-clamp: 4; /* SÃƒÂ¡Ã‚Â»Ã¢â‚¬Ëœ dÃƒÆ’Ã‚Â²ng hiÃƒÂ¡Ã‚Â»Ã†â€™n thÃƒÂ¡Ã‚Â»Ã¢â‚¬Â¹ */
    -webkit-box-orient: vertical;
 }
 .wrapper1 {
@@ -212,6 +219,10 @@ footer i {
 
 img {	
     border-radius: 5px 5px 0 0;
+}
+
+.card2 img {
+    height: 250px;
 }
 
 .wrapper2 {

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.vn.services.AnalysisServices;
 import edu.vn.services.ArticleServices;
+import edu.vn.services.CommentServices;
 import edu.vn.services.UserService;
 import edu.vn.utils.Constant;
 
@@ -19,6 +20,8 @@ public class AdminController {
   private AnalysisServices analysisServices;
   @Autowired
   private ArticleServices articleServices;
+  @Autowired
+  private CommentServices commentServices;
   @GetMapping("/accessdenied")
   public String accessFail() {
     return "accessdenied";
@@ -51,6 +54,7 @@ public class AdminController {
       model.addAttribute("allArticle", articleServices.getArticle(Constant.AR_ALL));
      return "articleAdmin";
     case "comment":
+      model.addAttribute("comments",commentServices.findAll());
       return "comment";
     default:
       

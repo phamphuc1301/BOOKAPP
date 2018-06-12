@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/source/css/login.css">
 	<script type="text/javascript" src="<%=request.getContextPath() %>/resources/source/js/jquery-3.2.1.min.js"></script>
 	<title>Chia sẻ - Review sách</title>
+	<link rel="shortcut icon" href="<%=request.getContextPath()%>/resources/source/admin/images/favico.png">
 </head>
 <body>
 	<div class="banner">
@@ -31,6 +32,8 @@
 		</div>
 	</div>
 	<div id = "session2">
+		<div class ="inform">${inform }</div>
+		<div class ="informError">${informError }</div>
 		<div><img src="<%=request.getContextPath() %>/resources/img/banner.png" alt=""></div>
 		<div class="register">
 			<div class="text">Bạn chưa có tài khoản ?</div>

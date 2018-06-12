@@ -14,4 +14,6 @@ public interface UserRepository {
   public List<User> listAll();
   
   public Users findByUserName(String userName);
+  
+  public String activeUser(String token);
 }
